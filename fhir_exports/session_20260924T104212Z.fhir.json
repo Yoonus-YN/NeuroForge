@@ -1,0 +1,297 @@
+{
+  "resourceType": "Bundle",
+  "id": "508c2a86-6e5c-4d58-9684-22c3f449bb6b",
+  "type": "document",
+  "timestamp": "2026-09-24T10:42:12.769396+00:00",
+  "entry": [
+    {
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "id": "b83e3304-db7d-4443-a04f-0e14aeec3212",
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                "code": "NRS",
+                "display": "Neurology"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "text": "NeuroForge CANRP-X Rehabilitation Session Report"
+        },
+        "subject": {
+          "reference": "Patient/PSEUDO-E810DC762488"
+        },
+        "effectivePeriod": {
+          "start": "2026-09-24T10:42:12.769396+00:00",
+          "end": "2026-09-24T10:42:12.769396+00:00"
+        },
+        "issued": "2026-09-24T10:42:12.769396+00:00",
+        "result": [
+          {
+            "reference": "#de92846f-2f5c-417e-aa1a-f07151bde253"
+          },
+          {
+            "reference": "#44c13bc7-09c2-4351-bbda-89d71a85e13b"
+          },
+          {
+            "reference": "#f65a76af-1040-4e88-b6c2-eec0ec6a7ee4"
+          },
+          {
+            "reference": "#77c46d69-fc26-47db-a2a1-2b0387b8cb91"
+          },
+          {
+            "reference": "#b0c3c3a3-769f-4d89-b979-7237128275de"
+          },
+          {
+            "reference": "#2587602d-0b57-4d39-a699-d98b6473459d"
+          }
+        ],
+        "contained": [
+          {
+            "resourceType": "Observation",
+            "id": "de92846f-2f5c-417e-aa1a-f07151bde253",
+            "status": "final",
+            "category": [
+              {
+                "coding": [
+                  {
+                    "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                    "code": "activity",
+                    "display": "Activity"
+                  }
+                ]
+              }
+            ],
+            "code": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "228429008",
+                  "display": "Number of steps taken"
+                }
+              ]
+            },
+            "subject": {
+              "reference": "Patient/PSEUDO-E810DC762488"
+            },
+            "device": {
+              "reference": "Device/CANRP-X-v3.0"
+            },
+            "effectiveDateTime": "2026-09-24T10:42:12.768783+00:00",
+            "valueQuantity": {
+              "value": 60.0,
+              "unit": "steps",
+              "system": "http://unitsofmeasure.org",
+              "code": "{steps}"
+            }
+          },
+          {
+            "resourceType": "Observation",
+            "id": "44c13bc7-09c2-4351-bbda-89d71a85e13b",
+            "status": "final",
+            "category": [
+              {
+                "coding": [
+                  {
+                    "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                    "code": "laboratory",
+                    "display": "Laboratory"
+                  }
+                ]
+              }
+            ],
+            "code": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "386725004",
+                  "display": "Signal quality index"
+                }
+              ]
+            },
+            "subject": {
+              "reference": "Patient/PSEUDO-E810DC762488"
+            },
+            "device": {
+              "reference": "Device/CANRP-X-v3.0"
+            },
+            "effectiveDateTime": "2026-09-24T10:42:12.769396+00:00",
+            "valueQuantity": {
+              "value": 0.9219,
+              "unit": "dimensionless",
+              "system": "http://unitsofmeasure.org",
+              "code": "1"
+            }
+          },
+          {
+            "resourceType": "Observation",
+            "id": "f65a76af-1040-4e88-b6c2-eec0ec6a7ee4",
+            "status": "final",
+            "category": [
+              {
+                "coding": [
+                  {
+                    "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                    "code": "exam",
+                    "display": "Exam"
+                  }
+                ]
+              }
+            ],
+            "code": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "397765004",
+                  "display": "Spastic episodes count"
+                }
+              ]
+            },
+            "subject": {
+              "reference": "Patient/PSEUDO-E810DC762488"
+            },
+            "device": {
+              "reference": "Device/CANRP-X-v3.0"
+            },
+            "effectiveDateTime": "2026-09-24T10:42:12.769396+00:00",
+            "valueQuantity": {
+              "value": 0.0,
+              "unit": "count",
+              "system": "http://unitsofmeasure.org",
+              "code": "{count}"
+            }
+          },
+          {
+            "resourceType": "Observation",
+            "id": "77c46d69-fc26-47db-a2a1-2b0387b8cb91",
+            "status": "final",
+            "category": [
+              {
+                "coding": [
+                  {
+                    "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                    "code": "laboratory",
+                    "display": "Laboratory"
+                  }
+                ]
+              }
+            ],
+            "code": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "55543008",
+                  "display": "Dopamine concentration"
+                }
+              ]
+            },
+            "subject": {
+              "reference": "Patient/PSEUDO-E810DC762488"
+            },
+            "device": {
+              "reference": "Device/CANRP-X-v3.0"
+            },
+            "effectiveDateTime": "2026-09-24T10:42:12.769396+00:00",
+            "valueQuantity": {
+              "value": 80.3477,
+              "unit": "nM",
+              "system": "http://unitsofmeasure.org",
+              "code": "nmol/L"
+            }
+          },
+          {
+            "resourceType": "Observation",
+            "id": "b0c3c3a3-769f-4d89-b979-7237128275de",
+            "status": "final",
+            "category": [
+              {
+                "coding": [
+                  {
+                    "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                    "code": "vital-signs",
+                    "display": "Vital Signs"
+                  }
+                ]
+              }
+            ],
+            "code": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "251765005",
+                  "display": "Closed-loop latency"
+                }
+              ]
+            },
+            "subject": {
+              "reference": "Patient/PSEUDO-E810DC762488"
+            },
+            "device": {
+              "reference": "Device/CANRP-X-v3.0"
+            },
+            "effectiveDateTime": "2026-09-24T10:42:12.769396+00:00",
+            "valueQuantity": {
+              "value": 120.9062,
+              "unit": "ms",
+              "system": "http://unitsofmeasure.org",
+              "code": "ms"
+            }
+          },
+          {
+            "resourceType": "Observation",
+            "id": "2587602d-0b57-4d39-a699-d98b6473459d",
+            "status": "final",
+            "category": [
+              {
+                "coding": [
+                  {
+                    "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                    "code": "laboratory",
+                    "display": "Laboratory"
+                  }
+                ]
+              }
+            ],
+            "code": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "7889000",
+                  "display": "Synaptic weight change (STDP)"
+                }
+              ]
+            },
+            "subject": {
+              "reference": "Patient/PSEUDO-E810DC762488"
+            },
+            "device": {
+              "reference": "Device/CANRP-X-v3.0"
+            },
+            "effectiveDateTime": "2026-09-24T10:42:12.769396+00:00",
+            "valueQuantity": {
+              "value": -0.1826,
+              "unit": "dimensionless",
+              "system": "http://unitsofmeasure.org",
+              "code": "1"
+            }
+          }
+        ],
+        "conclusion": "Rehabilitation session completed. Steps: 60. Mean SQI: 0.92. Latency: 120.9 ms. Alerts: ['LATENCY_EXCEEDED: 154.9ms > 15ms', 'LATENCY_EXCEEDED: 88.5ms > 15ms', 'LATENCY_EXCEEDED: 105.4ms > 15ms', 'LATENCY_EXCEEDED: 103.4ms > 15ms', 'LATENCY_EXCEEDED: 130.0ms > 15ms', 'LATENCY_EXCEEDED: 117.4ms > 15ms', 'LATENCY_EXCEEDED: 102.3ms > 15ms', 'LATENCY_EXCEEDED: 121.1ms > 15ms', 'LATENCY_EXCEEDED: 161.6ms > 15ms', 'SHANNON_VIOLATION: SAFETY VIOLATION \u2014 k=3.107 \u2265 1.75. Clamping 80.0\u03bcA \u2192 16.8\u03bcA.', 'LATENCY_EXCEEDED: 119.1ms > 15ms', 'LATENCY_EXCEEDED: 122.4ms > 15ms', 'LATENCY_EXCEEDED: 114.7ms > 15ms', 'LATENCY_EXCEEDED: 132.7ms > 15ms', 'LATENCY_EXCEEDED: 124.2ms > 15ms', 'LATENCY_EXCEEDED: 118.3ms > 15ms', 'LATENCY_EXCEEDED: 103.7ms > 15ms', 'LATENCY_EXCEEDED: 147.0ms > 15ms', 'LATENCY_EXCEEDED: 111.1ms > 15ms', 'LATENCY_EXCEEDED: 112.8ms > 15ms', 'LATENCY_EXCEEDED: 106.5ms > 15ms', 'LATENCY_EXCEEDED: 135.5ms > 15ms', 'LATENCY_EXCEEDED: 99.1ms > 15ms', 'LATENCY_EXCEEDED: 117.0ms > 15ms', 'LATENCY_EXCEEDED: 149.0ms > 15ms', 'LATENCY_EXCEEDED: 190.0ms > 15ms', 'NMPC_KNEE_BUCKLE_RISK', 'LATENCY_EXCEEDED: 131.8ms > 15ms', 'LATENCY_EXCEEDED: 117.8ms > 15ms', 'LATENCY_EXCEEDED: 97.2ms > 15ms', 'LATENCY_EXCEEDED: 136.5ms > 15ms', 'LATENCY_EXCEEDED: 99.8ms > 15ms', 'LATENCY_EXCEEDED: 89.9ms > 15ms', 'LATENCY_EXCEEDED: 125.6ms > 15ms', 'LATENCY_EXCEEDED: 150.2ms > 15ms', 'LATENCY_EXCEEDED: 117.2ms > 15ms', 'LATENCY_EXCEEDED: 83.0ms > 15ms', 'LATENCY_EXCEEDED: 90.7ms > 15ms', 'LATENCY_EXCEEDED: 113.1ms > 15ms', 'LATENCY_EXCEEDED: 107.0ms > 15ms', 'LATENCY_EXCEEDED: 127.2ms > 15ms', 'LATENCY_EXCEEDED: 125.4ms > 15ms', 'LATENCY_EXCEEDED: 119.4ms > 15ms', 'LATENCY_EXCEEDED: 99.9ms > 15ms', 'LATENCY_EXCEEDED: 145.9ms > 15ms', 'LATENCY_EXCEEDED: 115.2ms > 15ms', 'LATENCY_EXCEEDED: 104.6ms > 15ms', 'LATENCY_EXCEEDED: 179.8ms > 15ms', 'LATENCY_EXCEEDED: 87.1ms > 15ms', 'LATENCY_EXCEEDED: 130.3ms > 15ms', 'LATENCY_EXCEEDED: 82.3ms > 15ms', 'LATENCY_EXCEEDED: 105.9ms > 15ms', 'LATENCY_EXCEEDED: 115.5ms > 15ms', 'LATENCY_EXCEEDED: 171.2ms > 15ms', 'LATENCY_EXCEEDED: 88.0ms > 15ms', 'LATENCY_EXCEEDED: 108.4ms > 15ms', 'LATENCY_EXCEEDED: 110.9ms > 15ms', 'LATENCY_EXCEEDED: 102.4ms > 15ms', 'LATENCY_EXCEEDED: 173.1ms > 15ms', 'LATENCY_EXCEEDED: 155.0ms > 15ms'].",
+        "meta": {
+          "security": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-Confidentiality",
+              "code": "R",
+              "display": "Restricted \u2014 GDPR Article 9 Special Category"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

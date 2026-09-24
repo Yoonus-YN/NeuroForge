@@ -1,0 +1,21 @@
+# NeuroForge CANRP-X v3.0 — Python Dependencies
+# CPU-optimised for laptop deployment. GPU optional.
+# Pin with: pip install -r requirements.txt
+
+# ── Core scientific stack ─────────────────────────────────────────────────────
+numpy>=1.26,<2.0
+scipy>=1.12,<2.0
+
+# ── Deep learning (CPU) ───────────────────────────────────────────────────────
+torch>=2.2,<3.0          # CPU wheels default on pip; use --index-url for CUDA
+
+# ── MLOps ─────────────────────────────────────────────────────────────────────
+mlflow>=2.12,<3.0
+optuna>=3.6,<4.0
+
+# ── Testing ───────────────────────────────────────────────────────────────────
+pytest>=8.0,<9.0
+pytest-cov>=4.1,<5.0
+
+# ── Utilities ─────────────────────────────────────────────────────────────────
+tqdm>=4.66,<5.0

@@ -1,0 +1,2426 @@
+[
+  {
+    "step": 0,
+    "latency_ms": 190.05,
+    "sqi": 0.903,
+    "bad_channels": [
+      0
+    ],
+    "gait_phase": 0.0052,
+    "angles_deg": [
+      1.97,
+      8.49,
+      -32.52
+    ],
+    "torques_nm": [
+      -0.02,
+      0.01,
+      -0.11
+    ],
+    "cpg": {
+      "flexor_rate_hz": 0.0,
+      "extensor_rate_hz": 0.0,
+      "gait_phase_rad": 0.005235987755982989,
+      "anti_phase_index": 1.0,
+      "step_count": 1
+    },
+    "shannon_ok": false,
+    "reflex": false,
+    "dopamine_nm": 81.2,
+    "cole_alpha": 0.836,
+    "stair": false,
+    "xai_bands": {
+      "delta": 0.004989208947475135,
+      "theta": 0.00019693134467704772,
+      "alpha": 4.730583524177694e-05,
+      "mu_beta": 0.11285775557104187,
+      "low_gamma": 0.5231305027399826,
+      "high_gamma": 0.35877829556158153
+    },
+    "alerts": [
+      "SHANNON_VIOLATION: SAFETY VIOLATION \u2014 k=3.107 \u2265 1.75. Clamping 80.0\u03bcA \u2192 16.8\u03bcA.",
+      "NMPC_KNEE_BUCKLE_RISK",
+      "LATENCY_EXCEEDED: 190.0ms > 15ms"
+    ],
+    "attractor_x": 0.0027,
+    "attractor_y": 0.506,
+    "attractor_z": 0.0065,
+    "attractor_mode": "gait"
+  },
+  {
+    "step": 1,
+    "latency_ms": 127.23,
+    "sqi": 0.914,
+    "bad_channels": [],
+    "gait_phase": 0.0105,
+    "angles_deg": [
+      3.5,
+      -2.28,
+      -25.91
+    ],
+    "torques_nm": [
+      -0.1,
+      0.04,
+      0.04
+    ],
+    "cpg": {
+      "flexor_rate_hz": 0.0,
+      "extensor_rate_hz": 0.0,
+      "gait_phase_rad": 0.010471975511965978,
+      "anti_phase_index": 1.0,
+      "step_count": 2
+    },
+    "shannon_ok": false,
+    "reflex": false,
+    "dopamine_nm": 84.24,
+    "cole_alpha": 0.849,
+    "stair": false,
+    "xai_bands": {},
+    "alerts": [
+      "SHANNON_VIOLATION: SAFETY VIOLATION \u2014 k=3.107 \u2265 1.75. Clamping 80.0\u03bcA \u2192 16.8\u03bcA.",
+      "NMPC_KNEE_BUCKLE_RISK",
+      "LATENCY_EXCEEDED: 127.2ms > 15ms"
+    ],
+    "attractor_x": -0.0007,
+    "attractor_y": 0.5266,
+    "attractor_z": 0.0179,
+    "attractor_mode": "gait"
+  },
+  {
+    "step": 2,
+    "latency_ms": 171.24,
+    "sqi": 0.915,
+    "bad_channels": [],
+    "gait_phase": 0.0157,
+    "angles_deg": [
+      4.26,
+      -6.16,
+      -23.92
+    ],
+    "torques_nm": [
+      -0.1,
+      -0.13,
+      0.09
+    ],
+    "cpg": {
+      "flexor_rate_hz": 0.0,
+      "extensor_rate_hz": 0.0,
+      "gait_phase_rad": 0.015707963267948967,
+      "anti_phase_index": 1.0,
+      "step_count": 3
+    },
+    "shannon_ok": false,
+    "reflex": false,
+    "dopamine_nm": 83.62,
+    "cole_alpha": 0.84,
+    "stair": false,
+    "xai_bands": {},
+    "alerts": [
+      "SHANNON_VIOLATION: SAFETY VIOLATION \u2014 k=3.107 \u2265 1.75. Clamping 80.0\u03bcA \u2192 16.8\u03bcA.",
+      "NMPC_KNEE_BUCKLE_RISK",
+      "LATENCY_EXCEEDED: 171.2ms > 15ms"
+    ],
+    "attractor_x": -0.0353,
+    "attractor_y": 0.5101,
+    "attractor_z": 0.0249,
+    "attractor_mode": "gait"
+  },
+  {
+    "step": 3,
+    "latency_ms": 124.18,
+    "sqi": 0.931,
+    "bad_channels": [],
+    "gait_phase": 0.0209,
+    "angles_deg": [
+      4.15,
+      -7.88,
+      -20.13
+    ],
+    "torques_nm": [
+      -0.03,
+      0.08,
+      0.09
+    ],
+    "cpg": {
+      "flexor_rate_hz": 0.0,
+      "extensor_rate_hz": 0.0,
+      "gait_phase_rad": 0.020943951023931956,
+      "anti_phase_index": 1.0,
+      "step_count": 4
+    },
+    "shannon_ok": false,
+    "reflex": false,
+    "dopamine_nm": 89.71,
+    "cole_alpha": 0.85,
+    "stair": false,
+    "xai_bands": {},
+    "alerts": [
+      "SHANNON_VIOLATION: SAFETY VIOLATION \u2014 k=3.107 \u2265 1.75. Clamping 80.0\u03bcA \u2192 16.8\u03bcA.",
+      "NMPC_KNEE_BUCKLE_RISK",
+      "LATENCY_EXCEEDED: 124.2ms > 15ms"
+    ],
+    "attractor_x": -0.0717,
+    "attractor_y": 0.5284,
+    "attractor_z": 0.0284,
+    "attractor_mode": "gait"
+  },
+  {
+    "step": 4,
+    "latency_ms": 125.63,
+    "sqi": 0.929,
+    "bad_channels": [],
+    "gait_phase": 0.0262,
+    "angles_deg": [
+      5.2,
+      -10.12,
+      -20.91
+    ],
+    "torques_nm": [
+      -0.01,
+      0.32,
+      0.32
+    ],
+    "cpg": {
+      "flexor_rate_hz": 0.0,
+      "extensor_rate_hz": 0.0,
+      "gait_phase_rad": 0.026179938779914945,
+      "anti_phase_index": 1.0,
+      "step_count": 5
+    },
+    "shannon_ok": false,
+    "reflex": false,
+    "dopamine_nm": 90.52,
+    "cole_alpha": 0.814,
+    "stair": false,
+    "xai_bands": {},
+    "alerts": [
+      "SHANNON_VIOLATION: SAFETY VIOLATION \u2014 k=3.107 \u2265 1.75. Clamping 80.0\u03bcA \u2192 16.8\u03bcA.",
+      "NMPC_KNEE_BUCKLE_RISK",
+      "LATENCY_EXCEEDED: 125.6ms > 15ms"
+    ],
+    "attractor_x": -0.1137,
+    "attractor_y": 0.5334,
+    "attractor_z": 0.0417,
+    "attractor_mode": "gait"
+  },
+  {
+    "step": 5,
+    "latency_ms": 132.7,
+    "sqi": 0.923,
+    "bad_channels": [],
+    "gait_phase": 0.0314,
+    "angles_deg": [
+      4.35,
+      -10.59,
+      -20.09
+    ],
+    "torques_nm": [
+      0.03,
+      0.17,
+      -0.06
+    ],
+    "cpg": {
+      "flexor_rate_hz": 0.0,
+      "extensor_rate_hz": 0.0,
+      "gait_phase_rad": 0.031415926535897934,
+      "anti_phase_index": 1.0,
+      "step_count": 6
+    },
+    "shannon_ok": false,
+    "reflex": false,
+    "dopamine_nm": 94.4,
+    "cole_alpha": 0.866,
+    "stair": false,
+    "xai_bands": {
+      "delta": 0.002323392087197067,
+      "theta": 6.163299492616269e-05,
+      "alpha": 1.3819198319665504e-05,
+      "mu_beta": 0.11802778867730296,
+      "low_gamma": 0.5909566629646372,
+      "high_gamma": 0.2886167040776171
+    },
+    "alerts": [
+      "SHANNON_VIOLATION: SAFETY VIOLATION \u2014 k=3.107 \u2265 1.75. Clamping 80.0\u03bcA \u2192 16.8\u03bcA.",
+      "NMPC_KNEE_BUCKLE_RISK",
+      "LATENCY_EXCEEDED: 132.7ms > 15ms"
+    ],
+    "attractor_x": -0.1378,
+    "attractor_y": 0.5149,
+    "attractor_z": 0.0457,
+    "attractor_mode": "gait"
+  },
+  {
+    "step": 6,
+    "latency_ms": 130.01,
+    "sqi": 0.924,
+    "bad_channels": [],
+    "gait_phase": 0.0367,
+    "angles_deg": [
+      4.61,
+      -11.68,
+      -20.58
+    ],
+    "torques_nm": [
+      0.06,
+      0.24,
+      -0.27
+    ],
+    "cpg": {
+      "flexor_rate_hz": 0.0,
+      "extensor_rate_hz": 0.0,
+      "gait_phase_rad": 0.03665191429188092,
+      "anti_phase_index": 1.0,
+      "step_count": 7
+    },
+    "shannon_ok": false,
+    "reflex": false,
+    "dopamine_nm": 87.28,
+    "cole_alpha": 0.857,
+    "stair": false,
+    "xai_bands": {},
+    "alerts": [
+      "SHANNON_VIOLATION: SAFETY VIOLATION \u2014 k=3.107 \u2265 1.75. Clamping 80.0\u03bcA \u2192 16.8\u03bcA.",
+      "NMPC_KNEE_BUCKLE_RISK",
+      "LATENCY_EXCEEDED: 130.0ms > 15ms"
+    ],
+    "attractor_x": -0.1574,
+    "attractor_y": 0.5269,
+    "attractor_z": 0.0588,
+    "attractor_mode": "gait"
+  },
+  {
+    "step": 7,
+    "latency_ms": 118.34,
+    "sqi": 0.915,
+    "bad_channels": [],
+    "gait_phase": 0.0419,
+    "angles_deg": [
+      4.97,
+      -12.05,
+      -19.89
+    ],
+    "torques_nm": [
+      0.02,
+      -0.01,
+      0.27
+    ],
+    "cpg": {
+      "flexor_rate_hz": 0.0,
+      "extensor_rate_hz": 0.0,
+      "gait_phase_rad": 0.04188790204786391,
+      "anti_phase_index": 1.0,
+      "step_count": 8
+    },
+    "shannon_ok": false,
+    "reflex": false,
+    "dopamine_nm": 94.72,
+    "cole_alpha": 0.81,
+    "stair": false,
+    "xai_bands": {},
+    "alerts": [
+      "SHANNON_VIOLATION: SAFETY VIOLATION \u2014 k=3.107 \u2265 1.75. Clamping 80.0\u03bcA \u2192 16.8\u03bcA.",
+      "NMPC_KNEE_BUCKLE_RISK",
+      "LATENCY_EXCEEDED: 118.3ms > 15ms"
+    ],
+    "attractor_x": -0.2032,
+    "attractor_y": 0.5111,
+    "attractor_z": 0.0691,
+    "attractor_mode": "gait"
+  },
+  {
+    "step": 8,
+    "latency_ms": 125.44,
+    "sqi": 0.927,
+    "bad_channels": [],
+    "gait_phase": 0.0471,
+    "angles_deg": [
+      4.81,
+      -15.19,
+      -15.92
+    ],
+    "torques_nm": [
+      0.04,
+      -0.02,
+      0.22
+    ],
+    "cpg": {
+      "flexor_rate_hz": 0.0,
+      "extensor_rate_hz": 0.0,
+      "gait_phase_rad": 0.0471238898038469,
+      "anti_phase_index": 1.0,
+      "step_count": 9
+    },
+    "shannon_ok": false,
+    "reflex": false,
+    "dopamine_nm": 94.54,
+    "cole_alpha": 0.848,
+    "stair": false,
+    "xai_bands": {},
+    "alerts": [
+      "SHANNON_VIOLATION: SAFETY VIOLATION \u2014 k=3.107 \u2265 1.75. Clamping 80.0\u03bcA \u2192 16.8\u03bcA.",
+      "NMPC_KNEE_BUCKLE_RISK",
+      "LATENCY_EXCEEDED: 125.4ms > 15ms"
+    ],
+    "attractor_x": -0.2643,
+    "attractor_y": 0.5181,
+    "attractor_z": 0.0503,
+    "attractor_mode": "gait"
+  },
+  {
+    "step": 9,
+    "latency_ms": 147.03,
+    "sqi": 0.919,
+    "bad_channels": [],
+    "gait_phase": 0.0524,
+    "angles_deg": [
+      4.69,
+      -16.31,
+      -15.5
+    ],
+    "torques_nm": [
+      -0.02,
+      0.1,
+      0.05
+    ],
+    "cpg": {
+      "flexor_rate_hz": 0.0,
+      "extensor_rate_hz": 0.0,
+      "gait_phase_rad": 0.05235987755982989,
+      "anti_phase_index": 1.0,
+      "step_count": 10
+    },
+    "shannon_ok": false,
+    "reflex": false,
+    "dopamine_nm": 97.49,
+    "cole_alpha": 0.852,
+    "stair": false,
+    "xai_bands": {},
+    "alerts": [
+      "SHANNON_VIOLATION: SAFETY VIOLATION \u2014 k=3.107 \u2265 1.75. Clamping 80.0\u03bcA \u2192 16.8\u03bcA.",
+      "NMPC_KNEE_BUCKLE_RISK",
+      "LATENCY_EXCEEDED: 147.0ms > 15ms"
+    ],
+    "attractor_x": -0.3009,
+    "attractor_y": 0.535,
+    "attractor_z": 0.0475,
+    "attractor_mode": "gait"
+  },
+  {
+    "step": 10,
+    "latency_ms": 131.84,
+    "sqi": 0.906,
+    "bad_channels": [
+      10
+    ],
+    "gait_phase": 0.0576,
+    "angles_deg": [
+      3.42,
+      -14.79,
+      -15.72
+    ],
+    "torques_nm": [
+      0.03,
+      -0.31,
+      0.0
+    ],
+    "cpg": {
+      "flexor_rate_hz": 0.0,
+      "extensor_rate_hz": 0.0,
+      "gait_phase_rad": 0.05759586531581288,
+      "anti_phase_index": 1.0,
+      "step_count": 11
+    },
+    "shannon_ok": false,
+    "reflex": false,
+    "dopamine_nm": 102.85,
+    "cole_alpha": 0.849,
+    "stair": false,
+    "xai_bands": {
+      "delta": 0.0030432897442318058,
+      "theta": 0.00010465109738196223,
+      "alpha": 2.5490887182584933e-05,
+      "mu_beta": 0.1237118972987454,
+      "low_gamma": 0.5533258982648064,
+      "high_gamma": 0.3197887727076517
+    },
+    "alerts": [
+      "SHANNON_VIOLATION: SAFETY VIOLATION \u2014 k=3.107 \u2265 1.75. Clamping 80.0\u03bcA \u2192 16.8\u03bcA.",
+      "NMPC_KNEE_BUCKLE_RISK",
+      "LATENCY_EXCEEDED: 131.8ms > 15ms"
+    ],
+    "attractor_x": -0.3363,
+    "attractor_y": 0.5265,
+    "attractor_z": 0.0442,
+    "attractor_mode": "gait"
+  },
+  {
+    "step": 11,
+    "latency_ms": 99.08,
+    "sqi": 0.927,
+    "bad_channels": [],
+    "gait_phase": 0.0628,
+    "angles_deg": [
+      4.12,
+      -15.59,
+      -17.48
+    ],
+    "torques_nm": [
+      0.07,
+      -0.14,
+      0.23
+    ],
+    "cpg": {
+      "flexor_rate_hz": 0.0,
+      "extensor_rate_hz": 0.0,
+      "gait_phase_rad": 0.06283185307179587,
+      "anti_phase_index": 1.0,
+      "step_count": 12
+    },
+    "shannon_ok": false,
+    "reflex": false,
+    "dopamine_nm": 100.65,
+    "cole_alpha": 0.842,
+    "stair": false,
+    "xai_bands": {},
+    "alerts": [
+      "SHANNON_VIOLATION: SAFETY VIOLATION \u2014 k=3.107 \u2265 1.75. Clamping 80.0\u03bcA \u2192 16.8\u03bcA.",
+      "NMPC_KNEE_BUCKLE_RISK",
+      "LATENCY_EXCEEDED: 99.1ms > 15ms"
+    ],
+    "attractor_x": -0.3782,
+    "attractor_y": 0.5155,
+    "attractor_z": 0.0856,
+    "attractor_mode": "gait"
+  },
+  {
+    "step": 12,
+    "latency_ms": 154.97,
+    "sqi": 0.919,
+    "bad_channels": [],
+    "gait_phase": 0.0681,
+    "angles_deg": [
+      3.37,
+      -16.21,
+      -15.46
+    ],
+    "torques_nm": [
+      -0.01,
+      0.33,
+      0.25
+    ],
+    "cpg": {
+      "flexor_rate_hz": 0.0,
+      "extensor_rate_hz": 0.0,
+      "gait_phase_rad": 0.06806784082777886,
+      "anti_phase_index": 1.0,
+      "step_count": 13
+    },
+    "shannon_ok": false,
+    "reflex": false,
+    "dopamine_nm": 106.65,
+    "cole_alpha": 0.841,
+    "stair": false,
+    "xai_bands": {},
+    "alerts": [
+      "SHANNON_VIOLATION: SAFETY VIOLATION \u2014 k=3.107 \u2265 1.75. Clamping 80.0\u03bcA \u2192 16.8\u03bcA.",
+      "NMPC_KNEE_BUCKLE_RISK",
+      "LATENCY_EXCEEDED: 155.0ms > 15ms"
+    ],
+    "attractor_x": -0.389,
+    "attractor_y": 0.506,
+    "attractor_z": 0.0882,
+    "attractor_mode": "gait"
+  },
+  {
+    "step": 13,
+    "latency_ms": 104.62,
+    "sqi": 0.933,
+    "bad_channels": [],
+    "gait_phase": 0.0733,
+    "angles_deg": [
+      4.17,
+      -17.59,
+      -14.54
+    ],
+    "torques_nm": [
+      -0.01,
+      -0.12,
+      -0.03
+    ],
+    "cpg": {
+      "flexor_rate_hz": 0.0,
+      "extensor_rate_hz": 0.0,
+      "gait_phase_rad": 0.07330382858376186,
+      "anti_phase_index": 1.0,
+      "step_count": 14
+    },
+    "shannon_ok": false,
+    "reflex": false,
+    "dopamine_nm": 105.42,
+    "cole_alpha": 0.812,
+    "stair": false,
+    "xai_bands": {},
+    "alerts": [
+      "SHANNON_VIOLATION: SAFETY VIOLATION \u2014 k=3.107 \u2265 1.75. Clamping 80.0\u03bcA \u2192 16.8\u03bcA.",
+      "NMPC_KNEE_BUCKLE_RISK",
+      "LATENCY_EXCEEDED: 104.6ms > 15ms"
+    ],
+    "attractor_x": -0.4021,
+    "attractor_y": 0.4998,
+    "attractor_z": 0.0684,
+    "attractor_mode": "gait"
+  },
+  {
+    "step": 14,
+    "latency_ms": 119.12,
+    "sqi": 0.922,
+    "bad_channels": [],
+    "gait_phase": 0.0785,
+    "angles_deg": [
+      3.26,
+      -17.02,
+      -14.56
+    ],
+    "torques_nm": [
+      0.01,
+      0.05,
+      0.28
+    ],
+    "cpg": {
+      "flexor_rate_hz": 0.0,
+      "extensor_rate_hz": 0.0,
+      "gait_phase_rad": 0.07853981633974486,
+      "anti_phase_index": 1.0,
+      "step_count": 15
+    },
+    "shannon_ok": false,
+    "reflex": false,
+    "dopamine_nm": 111.57,
+    "cole_alpha": 0.862,
+    "stair": false,
+    "xai_bands": {},
+    "alerts": [
+      "SHANNON_VIOLATION: SAFETY VIOLATION \u2014 k=3.107 \u2265 1.75. Clamping 80.0\u03bcA \u2192 16.8\u03bcA.",
+      "NMPC_KNEE_BUCKLE_RISK",
+      "LATENCY_EXCEEDED: 119.1ms > 15ms"
+    ],
+    "attractor_x": -0.4209,
+    "attractor_y": 0.4817,
+    "attractor_z": 0.1006,
+    "attractor_mode": "gait"
+  },
+  {
+    "step": 15,
+    "latency_ms": 179.84,
+    "sqi": 0.911,
+    "bad_channels": [],
+    "gait_phase": 0.0838,
+    "angles_deg": [
+      2.83,
+      -16.36,
+      -14.75
+    ],
+    "torques_nm": [
+      0.05,
+      0.08,
+      -0.2
+    ],
+    "cpg": {
+      "flexor_rate_hz": 0.0,
+      "extensor_rate_hz": 0.0,
+      "gait_phase_rad": 0.08377580409572785,
+      "anti_phase_index": 1.0,
+      "step_count": 16
+    },
+    "shannon_ok": false,
+    "reflex": false,
+    "dopamine_nm": 103.03,
+    "cole_alpha": 0.851,
+    "stair": false,
+    "xai_bands": {
+      "delta": 0.002464048892388703,
+      "theta": 7.368977941775034e-05,
+      "alpha": 1.6265136470847573e-05,
+      "mu_beta": 0.10080965467355561,
+      "low_gamma": 0.6023394273995626,
+      "high_gamma": 0.2942969141186045
+    },
+    "alerts": [
+      "SHANNON_VIOLATION: SAFETY VIOLATION \u2014 k=3.107 \u2265 1.75. Clamping 80.0\u03bcA \u2192 16.8\u03bcA.",
+      "NMPC_KNEE_BUCKLE_RISK",
+      "LATENCY_EXCEEDED: 179.8ms > 15ms"
+    ],
+    "attractor_x": -0.4533,
+    "attractor_y": 0.4867,
+    "attractor_z": 0.0745,
+    "attractor_mode": "gait"
+  },
+  {
+    "step": 16,
+    "latency_ms": 106.47,
+    "sqi": 0.927,
+    "bad_channels": [],
+    "gait_phase": 0.089,
+    "angles_deg": [
+      3.82,
+      -17.05,
+      -14.69
+    ],
+    "torques_nm": [
+      -0.02,
+      0.3,
+      -0.06
+    ],
+    "cpg": {
+      "flexor_rate_hz": 0.0,
+      "extensor_rate_hz": 0.0,
+      "gait_phase_rad": 0.08901179185171085,
+      "anti_phase_index": 1.0,
+      "step_count": 17
+    },
+    "shannon_ok": false,
+    "reflex": false,
+    "dopamine_nm": 104.38,
+    "cole_alpha": 0.834,
+    "stair": false,
+    "xai_bands": {},
+    "alerts": [
+      "SHANNON_VIOLATION: SAFETY VIOLATION \u2014 k=3.107 \u2265 1.75. Clamping 80.0\u03bcA \u2192 16.8\u03bcA.",
+      "NMPC_KNEE_BUCKLE_RISK",
+      "LATENCY_EXCEEDED: 106.5ms > 15ms"
+    ],
+    "attractor_x": -0.4755,
+    "attractor_y": 0.451,
+    "attractor_z": 0.0547,
+    "attractor_mode": "gait"
+  },
+  {
+    "step": 17,
+    "latency_ms": 113.07,
+    "sqi": 0.917,
+    "bad_channels": [],
+    "gait_phase": 0.0942,
+    "angles_deg": [
+      3.99,
+      -16.75,
+      -15.0
+    ],
+    "torques_nm": [
+      0.02,
+      0.11,
+      -0.11
+    ],
+    "cpg": {
+      "flexor_rate_hz": 0.0,
+      "extensor_rate_hz": 0.0,
+      "gait_phase_rad": 0.09424777960769384,
+      "anti_phase_index": 1.0,
+      "step_count": 18
+    },
+    "shannon_ok": false,
+    "reflex": false,
+    "dopamine_nm": 105.43,
+    "cole_alpha": 0.867,
+    "stair": false,
+    "xai_bands": {},
+    "alerts": [
+      "SHANNON_VIOLATION: SAFETY VIOLATION \u2014 k=3.107 \u2265 1.75. Clamping 80.0\u03bcA \u2192 16.8\u03bcA.",
+      "NMPC_KNEE_BUCKLE_RISK",
+      "LATENCY_EXCEEDED: 113.1ms > 15ms"
+    ],
+    "attractor_x": -0.4865,
+    "attractor_y": 0.4089,
+    "attractor_z": 0.0503,
+    "attractor_mode": "gait"
+  },
+  {
+    "step": 18,
+    "latency_ms": 119.38,
+    "sqi": 0.92,
+    "bad_channels": [],
+    "gait_phase": 0.0995,
+    "angles_deg": [
+      4.86,
+      -17.41,
+      -14.45
+    ],
+    "torques_nm": [
+      -0.06,
+      -0.16,
+      0.16
+    ],
+    "cpg": {
+      "flexor_rate_hz": 0.0,
+      "extensor_rate_hz": 0.0,
+      "gait_phase_rad": 0.09948376736367684,
+      "anti_phase_index": 1.0,
+      "step_count": 19
+    },
+    "shannon_ok": false,
+    "reflex": false,
+    "dopamine_nm": 102.07,
+    "cole_alpha": 0.835,
+    "stair": false,
+    "xai_bands": {},
+    "alerts": [
+      "SHANNON_VIOLATION: SAFETY VIOLATION \u2014 k=3.107 \u2265 1.75. Clamping 80.0\u03bcA \u2192 16.8\u03bcA.",
+      "NMPC_KNEE_BUCKLE_RISK",
+      "LATENCY_EXCEEDED: 119.4ms > 15ms"
+    ],
+    "attractor_x": -0.5251,
+    "attractor_y": 0.3939,
+    "attractor_z": 0.0544,
+    "attractor_mode": "gait"
+  },
+  {
+    "step": 19,
+    "latency_ms": 154.88,
+    "sqi": 0.934,
+    "bad_channels": [],
+    "gait_phase": 0.1047,
+    "angles_deg": [
+      4.25,
+      -16.5,
+      -13.8
+    ],
+    "torques_nm": [
+      0.02,
+      -0.06,
+      -0.18
+    ],
+    "cpg": {
+      "flexor_rate_hz": 0.0,
+      "extensor_rate_hz": 0.0,
+      "gait_phase_rad": 0.10471975511965984,
+      "anti_phase_index": 1.0,
+      "step_count": 20
+    },
+    "shannon_ok": false,
+    "reflex": false,
+    "dopamine_nm": 102.52,
+    "cole_alpha": 0.809,
+    "stair": false,
+    "xai_bands": {},
+    "alerts": [
+      "SHANNON_VIOLATION: SAFETY VIOLATION \u2014 k=3.107 \u2265 1.75. Clamping 80.0\u03bcA \u2192 16.8\u03bcA.",
+      "NMPC_KNEE_BUCKLE_RISK",
+      "LATENCY_EXCEEDED: 154.9ms > 15ms"
+    ],
+    "attractor_x": -0.5919,
+    "attractor_y": 0.3831,
+    "attractor_z": 0.0405,
+    "attractor_mode": "gait"
+  },
+  {
+    "step": 20,
+    "latency_ms": 155.04,
+    "sqi": 0.894,
+    "bad_channels": [
+      4
+    ],
+    "gait_phase": 0.11,
+    "angles_deg": [
+      3.7,
+      -15.82,
+      -15.27
+    ],
+    "torques_nm": [
+      0.03,
+      0.03,
+      0.21
+    ],
+    "cpg": {
+      "flexor_rate_hz": 0.0,
+      "extensor_rate_hz": 0.0,
+      "gait_phase_rad": 0.10995574287564283,
+      "anti_phase_index": 1.0,
+      "step_count": 21
+    },
+    "shannon_ok": false,
+    "reflex": false,
+    "dopamine_nm": 98.67,
+    "cole_alpha": 0.83,
+    "stair": false,
+    "xai_bands": {
+      "delta": 0.0027697870052276778,
+      "theta": 9.547356243644271e-05,
+      "alpha": 2.010381460956431e-05,
+      "mu_beta": 0.16147089822172983,
+      "low_gamma": 0.5297176198021094,
+      "high_gamma": 0.305926117593887
+    },
+    "alerts": [
+      "SHANNON_VIOLATION: SAFETY VIOLATION \u2014 k=3.107 \u2265 1.75. Clamping 80.0\u03bcA \u2192 16.8\u03bcA.",
+      "NMPC_KNEE_BUCKLE_RISK",
+      "LATENCY_EXCEEDED: 155.0ms > 15ms"
+    ],
+    "attractor_x": -0.5745,
+    "attractor_y": 0.3723,
+    "attractor_z": 0.0585,
+    "attractor_mode": "gait"
+  },
+  {
+    "step": 21,
+    "latency_ms": 108.41,
+    "sqi": 0.921,
+    "bad_channels": [],
+    "gait_phase": 0.1152,
+    "angles_deg": [
+      2.16,
+      -14.18,
+      -15.53
+    ],
+    "torques_nm": [
+      0.07,
+      -0.14,
+      -0.25
+    ],
+    "cpg": {
+      "flexor_rate_hz": 0.0,
+      "extensor_rate_hz": 0.0,
+      "gait_phase_rad": 0.11519173063162583,
+      "anti_phase_index": 1.0,
+      "step_count": 22
+    },
+    "shannon_ok": false,
+    "reflex": false,
+    "dopamine_nm": 99.35,
+    "cole_alpha": 0.815,
+    "stair": true,
+    "xai_bands": {},
+    "alerts": [
+      "SHANNON_VIOLATION: SAFETY VIOLATION \u2014 k=3.107 \u2265 1.75. Clamping 80.0\u03bcA \u2192 16.8\u03bcA.",
+      "NMPC_KNEE_BUCKLE_RISK",
+      "LATENCY_EXCEEDED: 108.4ms > 15ms"
+    ],
+    "attractor_x": -0.6435,
+    "attractor_y": 0.3799,
+    "attractor_z": 0.0581,
+    "attractor_mode": "gait"
+  },
+  {
+    "step": 22,
+    "latency_ms": 99.77,
+    "sqi": 0.924,
+    "bad_channels": [],
+    "gait_phase": 0.1204,
+    "angles_deg": [
+      1.31,
+      -14.36,
+      -14.64
+    ],
+    "torques_nm": [
+      0.0,
+      -0.17,
+      -0.07
+    ],
+    "cpg": {
+      "flexor_rate_hz": 0.0,
+      "extensor_rate_hz": 0.0,
+      "gait_phase_rad": 0.12042771838760882,
+      "anti_phase_index": 1.0,
+      "step_count": 23
+    },
+    "shannon_ok": false,
+    "reflex": false,
+    "dopamine_nm": 104.37,
+    "cole_alpha": 0.848,
+    "stair": true,
+    "xai_bands": {},
+    "alerts": [
+      "SHANNON_VIOLATION: SAFETY VIOLATION \u2014 k=3.107 \u2265 1.75. Clamping 80.0\u03bcA \u2192 16.8\u03bcA.",
+      "NMPC_KNEE_BUCKLE_RISK",
+      "LATENCY_EXCEEDED: 99.8ms > 15ms"
+    ],
+    "attractor_x": -0.6913,
+    "attractor_y": 0.3551,
+    "attractor_z": 0.0823,
+    "attractor_mode": "gait"
+  },
+  {
+    "step": 23,
+    "latency_ms": 117.45,
+    "sqi": 0.91,
+    "bad_channels": [],
+    "gait_phase": 0.1257,
+    "angles_deg": [
+      0.93,
+      -15.18,
+      -14.4
+    ],
+    "torques_nm": [
+      0.04,
+      -0.06,
+      -0.29
+    ],
+    "cpg": {
+      "flexor_rate_hz": 0.0,
+      "extensor_rate_hz": 0.0,
+      "gait_phase_rad": 0.12566370614359182,
+      "anti_phase_index": 1.0,
+      "step_count": 24
+    },
+    "shannon_ok": false,
+    "reflex": false,
+    "dopamine_nm": 99.06,
+    "cole_alpha": 0.849,
+    "stair": true,
+    "xai_bands": {},
+    "alerts": [
+      "SHANNON_VIOLATION: SAFETY VIOLATION \u2014 k=3.107 \u2265 1.75. Clamping 80.0\u03bcA \u2192 16.8\u03bcA.",
+      "NMPC_KNEE_BUCKLE_RISK",
+      "LATENCY_EXCEEDED: 117.4ms > 15ms"
+    ],
+    "attractor_x": -0.7424,
+    "attractor_y": 0.3422,
+    "attractor_z": 0.0739,
+    "attractor_mode": "gait"
+  },
+  {
+    "step": 24,
+    "latency_ms": 116.96,
+    "sqi": 0.921,
+    "bad_channels": [],
+    "gait_phase": 0.1309,
+    "angles_deg": [
+      -0.65,
+      -12.79,
+      -14.75
+    ],
+    "torques_nm": [
+      0.0,
+      -0.27,
+      0.49
+    ],
+    "cpg": {
+      "flexor_rate_hz": 0.0,
+      "extensor_rate_hz": 0.0,
+      "gait_phase_rad": 0.13089969389957481,
+      "anti_phase_index": 1.0,
+      "step_count": 25
+    },
+    "shannon_ok": false,
+    "reflex": false,
+    "dopamine_nm": 91.65,
+    "cole_alpha": 0.837,
+    "stair": true,
+    "xai_bands": {},
+    "alerts": [
+      "SHANNON_VIOLATION: SAFETY VIOLATION \u2014 k=3.107 \u2265 1.75. Clamping 80.0\u03bcA \u2192 16.8\u03bcA.",
+      "NMPC_KNEE_BUCKLE_RISK",
+      "LATENCY_EXCEEDED: 117.0ms > 15ms"
+    ],
+    "attractor_x": -0.7721,
+    "attractor_y": 0.2971,
+    "attractor_z": 0.056,
+    "attractor_mode": "gait"
+  },
+  {
+    "step": 25,
+    "latency_ms": 161.56,
+    "sqi": 0.919,
+    "bad_channels": [],
+    "gait_phase": 0.1361,
+    "angles_deg": [
+      -0.35,
+      -12.28,
+      -14.02
+    ],
+    "torques_nm": [
+      -0.05,
+      -0.02,
+      0.06
+    ],
+    "cpg": {
+      "flexor_rate_hz": 0.0,
+      "extensor_rate_hz": 0.0,
+      "gait_phase_rad": 0.1361356816555578,
+      "anti_phase_index": 1.0,
+      "step_count": 26
+    },
+    "shannon_ok": false,
+    "reflex": false,
+    "dopamine_nm": 99.52,
+    "cole_alpha": 0.823,
+    "stair": true,
+    "xai_bands": {
+      "delta": 0.0012868274593762685,
+      "theta": 5.0482606882623164e-05,
+      "alpha": 1.2178678517156995e-05,
+      "mu_beta": 0.12248478336689651,
+      "low_gamma": 0.5929233299192376,
+      "high_gamma": 0.28324239796908984
+    },
+    "alerts": [
+      "SHANNON_VIOLATION: SAFETY VIOLATION \u2014 k=3.107 \u2265 1.75. Clamping 80.0\u03bcA \u2192 16.8\u03bcA.",
+      "NMPC_KNEE_BUCKLE_RISK",
+      "LATENCY_EXCEEDED: 161.6ms > 15ms"
+    ],
+    "attractor_x": -0.7843,
+    "attractor_y": 0.2631,
+    "attractor_z": 0.0751,
+    "attractor_mode": "gait"
+  },
+  {
+    "step": 26,
+    "latency_ms": 90.66,
+    "sqi": 0.925,
+    "bad_channels": [],
+    "gait_phase": 0.1414,
+    "angles_deg": [
+      -0.07,
+      -13.13,
+      -14.66
+    ],
+    "torques_nm": [
+      -0.01,
+      0.33,
+      0.04
+    ],
+    "cpg": {
+      "flexor_rate_hz": 0.0,
+      "extensor_rate_hz": 0.0,
+      "gait_phase_rad": 0.1413716694115408,
+      "anti_phase_index": 1.0,
+      "step_count": 27
+    },
+    "shannon_ok": false,
+    "reflex": false,
+    "dopamine_nm": 93.19,
+    "cole_alpha": 0.806,
+    "stair": true,
+    "xai_bands": {},
+    "alerts": [
+      "SHANNON_VIOLATION: SAFETY VIOLATION \u2014 k=3.107 \u2265 1.75. Clamping 80.0\u03bcA \u2192 16.8\u03bcA.",
+      "NMPC_KNEE_BUCKLE_RISK",
+      "LATENCY_EXCEEDED: 90.7ms > 15ms"
+    ],
+    "attractor_x": -0.7712,
+    "attractor_y": 0.2169,
+    "attractor_z": 0.0944,
+    "attractor_mode": "gait"
+  },
+  {
+    "step": 27,
+    "latency_ms": 105.92,
+    "sqi": 0.929,
+    "bad_channels": [],
+    "gait_phase": 0.1466,
+    "angles_deg": [
+      -0.91,
+      -12.79,
+      -14.49
+    ],
+    "torques_nm": [
+      -0.02,
+      -0.25,
+      0.1
+    ],
+    "cpg": {
+      "flexor_rate_hz": 0.0,
+      "extensor_rate_hz": 0.0,
+      "gait_phase_rad": 0.1466076571675238,
+      "anti_phase_index": 1.0,
+      "step_count": 28
+    },
+    "shannon_ok": false,
+    "reflex": false,
+    "dopamine_nm": 90.13,
+    "cole_alpha": 0.846,
+    "stair": true,
+    "xai_bands": {},
+    "alerts": [
+      "SHANNON_VIOLATION: SAFETY VIOLATION \u2014 k=3.107 \u2265 1.75. Clamping 80.0\u03bcA \u2192 16.8\u03bcA.",
+      "NMPC_KNEE_BUCKLE_RISK",
+      "LATENCY_EXCEEDED: 105.9ms > 15ms"
+    ],
+    "attractor_x": -0.8061,
+    "attractor_y": 0.1898,
+    "attractor_z": 0.0705,
+    "attractor_mode": "gait"
+  },
+  {
+    "step": 28,
+    "latency_ms": 117.76,
+    "sqi": 0.925,
+    "bad_channels": [],
+    "gait_phase": 0.1518,
+    "angles_deg": [
+      -1.33,
+      -13.0,
+      -14.24
+    ],
+    "torques_nm": [
+      0.05,
+      0.09,
+      -0.17
+    ],
+    "cpg": {
+      "flexor_rate_hz": 0.0,
+      "extensor_rate_hz": 0.0,
+      "gait_phase_rad": 0.1518436449235068,
+      "anti_phase_index": 1.0,
+      "step_count": 29
+    },
+    "shannon_ok": false,
+    "reflex": false,
+    "dopamine_nm": 89.01,
+    "cole_alpha": 0.832,
+    "stair": true,
+    "xai_bands": {},
+    "alerts": [
+      "SHANNON_VIOLATION: SAFETY VIOLATION \u2014 k=3.107 \u2265 1.75. Clamping 80.0\u03bcA \u2192 16.8\u03bcA.",
+      "NMPC_KNEE_BUCKLE_RISK",
+      "LATENCY_EXCEEDED: 117.8ms > 15ms"
+    ],
+    "attractor_x": -0.8278,
+    "attractor_y": 0.1597,
+    "attractor_z": 0.0543,
+    "attractor_mode": "gait"
+  },
+  {
+    "step": 29,
+    "latency_ms": 106.96,
+    "sqi": 0.934,
+    "bad_channels": [],
+    "gait_phase": 0.1571,
+    "angles_deg": [
+      0.19,
+      -13.11,
+      -14.57
+    ],
+    "torques_nm": [
+      -0.02,
+      0.09,
+      -0.09
+    ],
+    "cpg": {
+      "flexor_rate_hz": 0.0,
+      "extensor_rate_hz": 0.0,
+      "gait_phase_rad": 0.1570796326794898,
+      "anti_phase_index": 1.0,
+      "step_count": 30
+    },
+    "shannon_ok": false,
+    "reflex": false,
+    "dopamine_nm": 90.07,
+    "cole_alpha": 0.819,
+    "stair": true,
+    "xai_bands": {},
+    "alerts": [
+      "SHANNON_VIOLATION: SAFETY VIOLATION \u2014 k=3.107 \u2265 1.75. Clamping 80.0\u03bcA \u2192 16.8\u03bcA.",
+      "NMPC_KNEE_BUCKLE_RISK",
+      "LATENCY_EXCEEDED: 107.0ms > 15ms"
+    ],
+    "attractor_x": -0.8275,
+    "attractor_y": 0.0879,
+    "attractor_z": 0.0392,
+    "attractor_mode": "gait"
+  },
+  {
+    "step": 30,
+    "latency_ms": 173.06,
+    "sqi": 0.915,
+    "bad_channels": [
+      14
+    ],
+    "gait_phase": 0.1623,
+    "angles_deg": [
+      0.98,
+      -12.32,
+      -13.99
+    ],
+    "torques_nm": [
+      -0.01,
+      -0.16,
+      0.13
+    ],
+    "cpg": {
+      "flexor_rate_hz": 0.0,
+      "extensor_rate_hz": 0.0,
+      "gait_phase_rad": 0.1623156204354728,
+      "anti_phase_index": 1.0,
+      "step_count": 31
+    },
+    "shannon_ok": false,
+    "reflex": false,
+    "dopamine_nm": 85.51,
+    "cole_alpha": 0.827,
+    "stair": true,
+    "xai_bands": {
+      "delta": 0.0017750653216440104,
+      "theta": 6.624579260692833e-05,
+      "alpha": 2.062796229661853e-05,
+      "mu_beta": 0.12326887437324663,
+      "low_gamma": 0.5519671658262733,
+      "high_gamma": 0.32290202072393254
+    },
+    "alerts": [
+      "SHANNON_VIOLATION: SAFETY VIOLATION \u2014 k=3.107 \u2265 1.75. Clamping 80.0\u03bcA \u2192 16.8\u03bcA.",
+      "NMPC_KNEE_BUCKLE_RISK",
+      "LATENCY_EXCEEDED: 173.1ms > 15ms"
+    ],
+    "attractor_x": -0.7825,
+    "attractor_y": 0.0915,
+    "attractor_z": 0.0313,
+    "attractor_mode": "stance"
+  },
+  {
+    "step": 31,
+    "latency_ms": 110.9,
+    "sqi": 0.939,
+    "bad_channels": [],
+    "gait_phase": 0.1676,
+    "angles_deg": [
+      1.14,
+      -11.4,
+      -13.43
+    ],
+    "torques_nm": [
+      0.02,
+      0.07,
+      0.27
+    ],
+    "cpg": {
+      "flexor_rate_hz": 0.0,
+      "extensor_rate_hz": 0.0,
+      "gait_phase_rad": 0.1675516081914558,
+      "anti_phase_index": 1.0,
+      "step_count": 32
+    },
+    "shannon_ok": false,
+    "reflex": false,
+    "dopamine_nm": 84.98,
+    "cole_alpha": 0.83,
+    "stair": true,
+    "xai_bands": {},
+    "alerts": [
+      "SHANNON_VIOLATION: SAFETY VIOLATION \u2014 k=3.107 \u2265 1.75. Clamping 80.0\u03bcA \u2192 16.8\u03bcA.",
+      "NMPC_KNEE_BUCKLE_RISK",
+      "LATENCY_EXCEEDED: 110.9ms > 15ms"
+    ],
+    "attractor_x": -0.734,
+    "attractor_y": 0.0875,
+    "attractor_z": 0.0437,
+    "attractor_mode": "stance"
+  },
+  {
+    "step": 32,
+    "latency_ms": 82.3,
+    "sqi": 0.925,
+    "bad_channels": [],
+    "gait_phase": 0.1728,
+    "angles_deg": [
+      2.97,
+      -13.4,
+      -14.17
+    ],
+    "torques_nm": [
+      -0.02,
+      -0.04,
+      -0.0
+    ],
+    "cpg": {
+      "flexor_rate_hz": 0.0,
+      "extensor_rate_hz": 0.0,
+      "gait_phase_rad": 0.17278759594743878,
+      "anti_phase_index": 1.0,
+      "step_count": 33
+    },
+    "shannon_ok": false,
+    "reflex": false,
+    "dopamine_nm": 78.92,
+    "cole_alpha": 0.829,
+    "stair": true,
+    "xai_bands": {},
+    "alerts": [
+      "SHANNON_VIOLATION: SAFETY VIOLATION \u2014 k=3.107 \u2265 1.75. Clamping 80.0\u03bcA \u2192 16.8\u03bcA.",
+      "NMPC_KNEE_BUCKLE_RISK",
+      "LATENCY_EXCEEDED: 82.3ms > 15ms"
+    ],
+    "attractor_x": -0.6991,
+    "attractor_y": 0.0793,
+    "attractor_z": 0.0443,
+    "attractor_mode": "stance"
+  },
+  {
+    "step": 33,
+    "latency_ms": 99.86,
+    "sqi": 0.919,
+    "bad_channels": [],
+    "gait_phase": 0.178,
+    "angles_deg": [
+      4.65,
+      -14.86,
+      -15.23
+    ],
+    "torques_nm": [
+      0.01,
+      0.24,
+      0.08
+    ],
+    "cpg": {
+      "flexor_rate_hz": 0.0,
+      "extensor_rate_hz": 0.0,
+      "gait_phase_rad": 0.17802358370342178,
+      "anti_phase_index": 1.0,
+      "step_count": 34
+    },
+    "shannon_ok": false,
+    "reflex": false,
+    "dopamine_nm": 75.11,
+    "cole_alpha": 0.827,
+    "stair": true,
+    "xai_bands": {},
+    "alerts": [
+      "SHANNON_VIOLATION: SAFETY VIOLATION \u2014 k=3.107 \u2265 1.75. Clamping 80.0\u03bcA \u2192 16.8\u03bcA.",
+      "NMPC_KNEE_BUCKLE_RISK",
+      "LATENCY_EXCEEDED: 99.9ms > 15ms"
+    ],
+    "attractor_x": -0.6709,
+    "attractor_y": 0.0752,
+    "attractor_z": 0.0427,
+    "attractor_mode": "stance"
+  },
+  {
+    "step": 34,
+    "latency_ms": 97.17,
+    "sqi": 0.921,
+    "bad_channels": [],
+    "gait_phase": 0.1833,
+    "angles_deg": [
+      4.93,
+      -13.94,
+      -16.37
+    ],
+    "torques_nm": [
+      0.02,
+      0.14,
+      0.03
+    ],
+    "cpg": {
+      "flexor_rate_hz": 0.0,
+      "extensor_rate_hz": 0.0,
+      "gait_phase_rad": 0.18325957145940477,
+      "anti_phase_index": 1.0,
+      "step_count": 35
+    },
+    "shannon_ok": false,
+    "reflex": false,
+    "dopamine_nm": 76.43,
+    "cole_alpha": 0.831,
+    "stair": true,
+    "xai_bands": {},
+    "alerts": [
+      "SHANNON_VIOLATION: SAFETY VIOLATION \u2014 k=3.107 \u2265 1.75. Clamping 80.0\u03bcA \u2192 16.8\u03bcA.",
+      "NMPC_KNEE_BUCKLE_RISK",
+      "LATENCY_EXCEEDED: 97.2ms > 15ms"
+    ],
+    "attractor_x": -0.6303,
+    "attractor_y": 0.0728,
+    "attractor_z": 0.0341,
+    "attractor_mode": "stance"
+  },
+  {
+    "step": 35,
+    "latency_ms": 150.2,
+    "sqi": 0.923,
+    "bad_channels": [],
+    "gait_phase": 0.1885,
+    "angles_deg": [
+      5.53,
+      -13.77,
+      -15.88
+    ],
+    "torques_nm": [
+      -0.02,
+      -0.32,
+      -0.03
+    ],
+    "cpg": {
+      "flexor_rate_hz": 0.0,
+      "extensor_rate_hz": 0.0,
+      "gait_phase_rad": 0.18849555921538777,
+      "anti_phase_index": 1.0,
+      "step_count": 36
+    },
+    "shannon_ok": false,
+    "reflex": false,
+    "dopamine_nm": 69.11,
+    "cole_alpha": 0.802,
+    "stair": true,
+    "xai_bands": {
+      "delta": 0.0010457491378930675,
+      "theta": 3.462092269755765e-05,
+      "alpha": 8.778236585187943e-06,
+      "mu_beta": 0.09297987421182102,
+      "low_gamma": 0.6196580222395162,
+      "high_gamma": 0.28627295525148705
+    },
+    "alerts": [
+      "SHANNON_VIOLATION: SAFETY VIOLATION \u2014 k=3.107 \u2265 1.75. Clamping 80.0\u03bcA \u2192 16.8\u03bcA.",
+      "LATENCY_EXCEEDED: 150.2ms > 15ms"
+    ],
+    "attractor_x": -0.6072,
+    "attractor_y": 0.0631,
+    "attractor_z": 0.0211,
+    "attractor_mode": "stance"
+  },
+  {
+    "step": 36,
+    "latency_ms": 114.69,
+    "sqi": 0.931,
+    "bad_channels": [],
+    "gait_phase": 0.1937,
+    "angles_deg": [
+      5.26,
+      -13.47,
+      -14.78
+    ],
+    "torques_nm": [
+      -0.02,
+      0.01,
+      0.36
+    ],
+    "cpg": {
+      "flexor_rate_hz": 0.0,
+      "extensor_rate_hz": 0.0,
+      "gait_phase_rad": 0.19373154697137077,
+      "anti_phase_index": 1.0,
+      "step_count": 37
+    },
+    "shannon_ok": false,
+    "reflex": false,
+    "dopamine_nm": 66.0,
+    "cole_alpha": 0.856,
+    "stair": true,
+    "xai_bands": {},
+    "alerts": [
+      "SHANNON_VIOLATION: SAFETY VIOLATION \u2014 k=3.107 \u2265 1.75. Clamping 80.0\u03bcA \u2192 16.8\u03bcA.",
+      "NMPC_KNEE_BUCKLE_RISK",
+      "LATENCY_EXCEEDED: 114.7ms > 15ms"
+    ],
+    "attractor_x": -0.5903,
+    "attractor_y": 0.0722,
+    "attractor_z": 0.0157,
+    "attractor_mode": "stance"
+  },
+  {
+    "step": 37,
+    "latency_ms": 105.42,
+    "sqi": 0.933,
+    "bad_channels": [],
+    "gait_phase": 0.199,
+    "angles_deg": [
+      4.47,
+      -13.62,
+      -14.88
+    ],
+    "torques_nm": [
+      0.0,
+      -0.01,
+      -0.46
+    ],
+    "cpg": {
+      "flexor_rate_hz": 0.0,
+      "extensor_rate_hz": 0.0,
+      "gait_phase_rad": 0.19896753472735376,
+      "anti_phase_index": 1.0,
+      "step_count": 38
+    },
+    "shannon_ok": false,
+    "reflex": false,
+    "dopamine_nm": 63.37,
+    "cole_alpha": 0.845,
+    "stair": true,
+    "xai_bands": {},
+    "alerts": [
+      "SHANNON_VIOLATION: SAFETY VIOLATION \u2014 k=3.107 \u2265 1.75. Clamping 80.0\u03bcA \u2192 16.8\u03bcA.",
+      "NMPC_KNEE_BUCKLE_RISK",
+      "LATENCY_EXCEEDED: 105.4ms > 15ms"
+    ],
+    "attractor_x": -0.5542,
+    "attractor_y": 0.0644,
+    "attractor_z": 0.0129,
+    "attractor_mode": "stance"
+  },
+  {
+    "step": 38,
+    "latency_ms": 88.52,
+    "sqi": 0.924,
+    "bad_channels": [],
+    "gait_phase": 0.2042,
+    "angles_deg": [
+      5.6,
+      -14.38,
+      -15.02
+    ],
+    "torques_nm": [
+      0.01,
+      -0.05,
+      0.01
+    ],
+    "cpg": {
+      "flexor_rate_hz": 0.0,
+      "extensor_rate_hz": 0.0,
+      "gait_phase_rad": 0.20420352248333676,
+      "anti_phase_index": 1.0,
+      "step_count": 39
+    },
+    "shannon_ok": false,
+    "reflex": false,
+    "dopamine_nm": 72.7,
+    "cole_alpha": 0.834,
+    "stair": true,
+    "xai_bands": {},
+    "alerts": [
+      "SHANNON_VIOLATION: SAFETY VIOLATION \u2014 k=3.107 \u2265 1.75. Clamping 80.0\u03bcA \u2192 16.8\u03bcA.",
+      "NMPC_KNEE_BUCKLE_RISK",
+      "LATENCY_EXCEEDED: 88.5ms > 15ms"
+    ],
+    "attractor_x": -0.5374,
+    "attractor_y": 0.069,
+    "attractor_z": 0.0103,
+    "attractor_mode": "stance"
+  },
+  {
+    "step": 39,
+    "latency_ms": 136.47,
+    "sqi": 0.92,
+    "bad_channels": [],
+    "gait_phase": 0.2094,
+    "angles_deg": [
+      4.98,
+      -14.31,
+      -15.2
+    ],
+    "torques_nm": [
+      0.07,
+      -0.2,
+      -0.14
+    ],
+    "cpg": {
+      "flexor_rate_hz": 0.0,
+      "extensor_rate_hz": 0.0,
+      "gait_phase_rad": 0.20943951023931975,
+      "anti_phase_index": 1.0,
+      "step_count": 40
+    },
+    "shannon_ok": false,
+    "reflex": false,
+    "dopamine_nm": 67.92,
+    "cole_alpha": 0.851,
+    "stair": true,
+    "xai_bands": {},
+    "alerts": [
+      "SHANNON_VIOLATION: SAFETY VIOLATION \u2014 k=3.107 \u2265 1.75. Clamping 80.0\u03bcA \u2192 16.8\u03bcA.",
+      "NMPC_KNEE_BUCKLE_RISK",
+      "LATENCY_EXCEEDED: 136.5ms > 15ms"
+    ],
+    "attractor_x": -0.5014,
+    "attractor_y": 0.0621,
+    "attractor_z": 0.0175,
+    "attractor_mode": "stance"
+  },
+  {
+    "step": 40,
+    "latency_ms": 135.45,
+    "sqi": 0.899,
+    "bad_channels": [
+      8
+    ],
+    "gait_phase": 0.2147,
+    "angles_deg": [
+      1.56,
+      -11.95,
+      -13.94
+    ],
+    "torques_nm": [
+      -0.05,
+      0.16,
+      -0.26
+    ],
+    "cpg": {
+      "flexor_rate_hz": 0.0,
+      "extensor_rate_hz": 0.0,
+      "gait_phase_rad": 0.21467549799530275,
+      "anti_phase_index": 1.0,
+      "step_count": 41
+    },
+    "shannon_ok": false,
+    "reflex": false,
+    "dopamine_nm": 60.4,
+    "cole_alpha": 0.852,
+    "stair": true,
+    "xai_bands": {
+      "delta": 0.0031951274096010686,
+      "theta": 0.00012080574680810758,
+      "alpha": 3.214268927809486e-05,
+      "mu_beta": 0.1179973273463817,
+      "low_gamma": 0.5289421870934464,
+      "high_gamma": 0.34971240971448464
+    },
+    "alerts": [
+      "SHANNON_VIOLATION: SAFETY VIOLATION \u2014 k=3.107 \u2265 1.75. Clamping 80.0\u03bcA \u2192 16.8\u03bcA.",
+      "NMPC_KNEE_BUCKLE_RISK",
+      "LATENCY_EXCEEDED: 135.5ms > 15ms"
+    ],
+    "attractor_x": -0.4681,
+    "attractor_y": 0.0511,
+    "attractor_z": 0.0198,
+    "attractor_mode": "stance"
+  },
+  {
+    "step": 41,
+    "latency_ms": 87.97,
+    "sqi": 0.922,
+    "bad_channels": [],
+    "gait_phase": 0.2199,
+    "angles_deg": [
+      0.33,
+      -11.06,
+      -14.9
+    ],
+    "torques_nm": [
+      0.09,
+      -0.1,
+      -0.41
+    ],
+    "cpg": {
+      "flexor_rate_hz": 0.0,
+      "extensor_rate_hz": 0.0,
+      "gait_phase_rad": 0.21991148575128575,
+      "anti_phase_index": 1.0,
+      "step_count": 42
+    },
+    "shannon_ok": false,
+    "reflex": false,
+    "dopamine_nm": 64.54,
+    "cole_alpha": 0.819,
+    "stair": true,
+    "xai_bands": {},
+    "alerts": [
+      "SHANNON_VIOLATION: SAFETY VIOLATION \u2014 k=3.107 \u2265 1.75. Clamping 80.0\u03bcA \u2192 16.8\u03bcA.",
+      "NMPC_KNEE_BUCKLE_RISK",
+      "LATENCY_EXCEEDED: 88.0ms > 15ms"
+    ],
+    "attractor_x": -0.451,
+    "attractor_y": 0.0428,
+    "attractor_z": 0.0199,
+    "attractor_mode": "stance"
+  },
+  {
+    "step": 42,
+    "latency_ms": 87.14,
+    "sqi": 0.918,
+    "bad_channels": [],
+    "gait_phase": 0.2251,
+    "angles_deg": [
+      2.23,
+      -11.88,
+      -12.77
+    ],
+    "torques_nm": [
+      0.05,
+      0.09,
+      -0.03
+    ],
+    "cpg": {
+      "flexor_rate_hz": 0.0,
+      "extensor_rate_hz": 0.0,
+      "gait_phase_rad": 0.22514747350726874,
+      "anti_phase_index": 1.0,
+      "step_count": 43
+    },
+    "shannon_ok": false,
+    "reflex": false,
+    "dopamine_nm": 55.33,
+    "cole_alpha": 0.826,
+    "stair": true,
+    "xai_bands": {},
+    "alerts": [
+      "SHANNON_VIOLATION: SAFETY VIOLATION \u2014 k=3.107 \u2265 1.75. Clamping 80.0\u03bcA \u2192 16.8\u03bcA.",
+      "NMPC_KNEE_BUCKLE_RISK",
+      "LATENCY_EXCEEDED: 87.1ms > 15ms"
+    ],
+    "attractor_x": -0.4236,
+    "attractor_y": 0.0496,
+    "attractor_z": 0.0173,
+    "attractor_mode": "stance"
+  },
+  {
+    "step": 43,
+    "latency_ms": 89.89,
+    "sqi": 0.914,
+    "bad_channels": [],
+    "gait_phase": 0.2304,
+    "angles_deg": [
+      1.45,
+      -11.68,
+      -13.54
+    ],
+    "torques_nm": [
+      0.03,
+      0.26,
+      -0.02
+    ],
+    "cpg": {
+      "flexor_rate_hz": 0.0,
+      "extensor_rate_hz": 0.0,
+      "gait_phase_rad": 0.23038346126325174,
+      "anti_phase_index": 1.0,
+      "step_count": 44
+    },
+    "shannon_ok": false,
+    "reflex": false,
+    "dopamine_nm": 56.95,
+    "cole_alpha": 0.843,
+    "stair": true,
+    "xai_bands": {},
+    "alerts": [
+      "SHANNON_VIOLATION: SAFETY VIOLATION \u2014 k=3.107 \u2265 1.75. Clamping 80.0\u03bcA \u2192 16.8\u03bcA.",
+      "NMPC_KNEE_BUCKLE_RISK",
+      "LATENCY_EXCEEDED: 89.9ms > 15ms"
+    ],
+    "attractor_x": -0.3962,
+    "attractor_y": 0.0514,
+    "attractor_z": 0.0168,
+    "attractor_mode": "stance"
+  },
+  {
+    "step": 44,
+    "latency_ms": 103.68,
+    "sqi": 0.933,
+    "bad_channels": [],
+    "gait_phase": 0.2356,
+    "angles_deg": [
+      1.87,
+      -11.51,
+      -14.04
+    ],
+    "torques_nm": [
+      0.07,
+      -0.08,
+      0.17
+    ],
+    "cpg": {
+      "flexor_rate_hz": 0.0,
+      "extensor_rate_hz": 0.0,
+      "gait_phase_rad": 0.23561944901923473,
+      "anti_phase_index": 1.0,
+      "step_count": 45
+    },
+    "shannon_ok": false,
+    "reflex": false,
+    "dopamine_nm": 57.36,
+    "cole_alpha": 0.851,
+    "stair": true,
+    "xai_bands": {},
+    "alerts": [
+      "SHANNON_VIOLATION: SAFETY VIOLATION \u2014 k=3.107 \u2265 1.75. Clamping 80.0\u03bcA \u2192 16.8\u03bcA.",
+      "LATENCY_EXCEEDED: 103.7ms > 15ms"
+    ],
+    "attractor_x": -0.3814,
+    "attractor_y": 0.0499,
+    "attractor_z": 0.037,
+    "attractor_mode": "stance"
+  },
+  {
+    "step": 45,
+    "latency_ms": 145.94,
+    "sqi": 0.929,
+    "bad_channels": [],
+    "gait_phase": 0.2409,
+    "angles_deg": [
+      1.42,
+      -12.36,
+      -13.48
+    ],
+    "torques_nm": [
+      -0.1,
+      0.14,
+      0.06
+    ],
+    "cpg": {
+      "flexor_rate_hz": 0.0,
+      "extensor_rate_hz": 0.0,
+      "gait_phase_rad": 0.24085543677521773,
+      "anti_phase_index": 1.0,
+      "step_count": 46
+    },
+    "shannon_ok": false,
+    "reflex": false,
+    "dopamine_nm": 53.72,
+    "cole_alpha": 0.814,
+    "stair": true,
+    "xai_bands": {
+      "delta": 0.004522949058206942,
+      "theta": 0.00015829833209211324,
+      "alpha": 3.785429876381045e-05,
+      "mu_beta": 0.16114970712477597,
+      "low_gamma": 0.5956822731275091,
+      "high_gamma": 0.23844891805865207
+    },
+    "alerts": [
+      "SHANNON_VIOLATION: SAFETY VIOLATION \u2014 k=3.107 \u2265 1.75. Clamping 80.0\u03bcA \u2192 16.8\u03bcA.",
+      "NMPC_KNEE_BUCKLE_RISK",
+      "LATENCY_EXCEEDED: 145.9ms > 15ms"
+    ],
+    "attractor_x": -0.4042,
+    "attractor_y": 0.0275,
+    "attractor_z": 0.0183,
+    "attractor_mode": "gait"
+  },
+  {
+    "step": 46,
+    "latency_ms": 103.39,
+    "sqi": 0.927,
+    "bad_channels": [],
+    "gait_phase": 0.2461,
+    "angles_deg": [
+      1.24,
+      -11.85,
+      -13.16
+    ],
+    "torques_nm": [
+      -0.05,
+      0.21,
+      -0.04
+    ],
+    "cpg": {
+      "flexor_rate_hz": 0.0,
+      "extensor_rate_hz": 0.0,
+      "gait_phase_rad": 0.24609142453120073,
+      "anti_phase_index": 1.0,
+      "step_count": 47
+    },
+    "shannon_ok": false,
+    "reflex": false,
+    "dopamine_nm": 55.71,
+    "cole_alpha": 0.859,
+    "stair": true,
+    "xai_bands": {},
+    "alerts": [
+      "SHANNON_VIOLATION: SAFETY VIOLATION \u2014 k=3.107 \u2265 1.75. Clamping 80.0\u03bcA \u2192 16.8\u03bcA.",
+      "NMPC_KNEE_BUCKLE_RISK",
+      "LATENCY_EXCEEDED: 103.4ms > 15ms"
+    ],
+    "attractor_x": -0.3803,
+    "attractor_y": 0.0424,
+    "attractor_z": 0.0441,
+    "attractor_mode": "gait"
+  },
+  {
+    "step": 47,
+    "latency_ms": 117.18,
+    "sqi": 0.924,
+    "bad_channels": [],
+    "gait_phase": 0.2513,
+    "angles_deg": [
+      2.14,
+      -12.63,
+      -14.17
+    ],
+    "torques_nm": [
+      -0.08,
+      0.27,
+      -0.03
+    ],
+    "cpg": {
+      "flexor_rate_hz": 0.0,
+      "extensor_rate_hz": 0.0,
+      "gait_phase_rad": 0.2513274122871837,
+      "anti_phase_index": 1.0,
+      "step_count": 48
+    },
+    "shannon_ok": false,
+    "reflex": false,
+    "dopamine_nm": 56.04,
+    "cole_alpha": 0.832,
+    "stair": true,
+    "xai_bands": {},
+    "alerts": [
+      "SHANNON_VIOLATION: SAFETY VIOLATION \u2014 k=3.107 \u2265 1.75. Clamping 80.0\u03bcA \u2192 16.8\u03bcA.",
+      "NMPC_KNEE_BUCKLE_RISK",
+      "LATENCY_EXCEEDED: 117.2ms > 15ms"
+    ],
+    "attractor_x": -0.345,
+    "attractor_y": 0.0212,
+    "attractor_z": 0.0758,
+    "attractor_mode": "gait"
+  },
+  {
+    "step": 48,
+    "latency_ms": 104.62,
+    "sqi": 0.931,
+    "bad_channels": [],
+    "gait_phase": 0.2566,
+    "angles_deg": [
+      4.13,
+      -13.92,
+      -14.56
+    ],
+    "torques_nm": [
+      -0.02,
+      -0.13,
+      0.23
+    ],
+    "cpg": {
+      "flexor_rate_hz": 0.0,
+      "extensor_rate_hz": 0.0,
+      "gait_phase_rad": 0.2565634000431667,
+      "anti_phase_index": 1.0,
+      "step_count": 49
+    },
+    "shannon_ok": false,
+    "reflex": false,
+    "dopamine_nm": 51.8,
+    "cole_alpha": 0.829,
+    "stair": true,
+    "xai_bands": {},
+    "alerts": [
+      "SHANNON_VIOLATION: SAFETY VIOLATION \u2014 k=3.107 \u2265 1.75. Clamping 80.0\u03bcA \u2192 16.8\u03bcA.",
+      "LATENCY_EXCEEDED: 104.6ms > 15ms"
+    ],
+    "attractor_x": -0.364,
+    "attractor_y": 0.0337,
+    "attractor_z": 0.1029,
+    "attractor_mode": "gait"
+  },
+  {
+    "step": 49,
+    "latency_ms": 115.23,
+    "sqi": 0.934,
+    "bad_channels": [],
+    "gait_phase": 0.2618,
+    "angles_deg": [
+      3.54,
+      -14.28,
+      -14.25
+    ],
+    "torques_nm": [
+      0.09,
+      -0.09,
+      -0.06
+    ],
+    "cpg": {
+      "flexor_rate_hz": 0.0,
+      "extensor_rate_hz": 0.0,
+      "gait_phase_rad": 0.2617993877991497,
+      "anti_phase_index": 1.0,
+      "step_count": 50
+    },
+    "shannon_ok": false,
+    "reflex": false,
+    "dopamine_nm": 56.25,
+    "cole_alpha": 0.871,
+    "stair": true,
+    "xai_bands": {},
+    "alerts": [
+      "SHANNON_VIOLATION: SAFETY VIOLATION \u2014 k=3.107 \u2265 1.75. Clamping 80.0\u03bcA \u2192 16.8\u03bcA.",
+      "LATENCY_EXCEEDED: 115.2ms > 15ms"
+    ],
+    "attractor_x": -0.3799,
+    "attractor_y": 0.0328,
+    "attractor_z": 0.0783,
+    "attractor_mode": "gait"
+  },
+  {
+    "step": 50,
+    "latency_ms": 149.04,
+    "sqi": 0.904,
+    "bad_channels": [
+      2
+    ],
+    "gait_phase": 0.267,
+    "angles_deg": [
+      2.64,
+      -13.91,
+      -15.77
+    ],
+    "torques_nm": [
+      -0.02,
+      -0.06,
+      0.13
+    ],
+    "cpg": {
+      "flexor_rate_hz": 0.0,
+      "extensor_rate_hz": 0.0,
+      "gait_phase_rad": 0.2670353755551327,
+      "anti_phase_index": 1.0,
+      "step_count": 51
+    },
+    "shannon_ok": false,
+    "reflex": false,
+    "dopamine_nm": 62.03,
+    "cole_alpha": 0.819,
+    "stair": true,
+    "xai_bands": {
+      "delta": 0.0042536950399506964,
+      "theta": 0.00010676426390583076,
+      "alpha": 2.663583644055647e-05,
+      "mu_beta": 0.22770386340537957,
+      "low_gamma": 0.4919639184905996,
+      "high_gamma": 0.27594512296372375
+    },
+    "alerts": [
+      "SHANNON_VIOLATION: SAFETY VIOLATION \u2014 k=3.107 \u2265 1.75. Clamping 80.0\u03bcA \u2192 16.8\u03bcA.",
+      "LATENCY_EXCEEDED: 149.0ms > 15ms"
+    ],
+    "attractor_x": -0.4115,
+    "attractor_y": -0.0154,
+    "attractor_z": 0.0538,
+    "attractor_mode": "gait"
+  },
+  {
+    "step": 51,
+    "latency_ms": 122.38,
+    "sqi": 0.918,
+    "bad_channels": [],
+    "gait_phase": 0.2723,
+    "angles_deg": [
+      2.0,
+      -15.28,
+      -15.89
+    ],
+    "torques_nm": [
+      -0.01,
+      -0.05,
+      0.13
+    ],
+    "cpg": {
+      "flexor_rate_hz": 0.0,
+      "extensor_rate_hz": 0.0,
+      "gait_phase_rad": 0.2722713633111157,
+      "anti_phase_index": 1.0,
+      "step_count": 52
+    },
+    "shannon_ok": false,
+    "reflex": false,
+    "dopamine_nm": 56.59,
+    "cole_alpha": 0.821,
+    "stair": true,
+    "xai_bands": {},
+    "alerts": [
+      "SHANNON_VIOLATION: SAFETY VIOLATION \u2014 k=3.107 \u2265 1.75. Clamping 80.0\u03bcA \u2192 16.8\u03bcA.",
+      "LATENCY_EXCEEDED: 122.4ms > 15ms"
+    ],
+    "attractor_x": -0.4359,
+    "attractor_y": -0.0404,
+    "attractor_z": 0.0865,
+    "attractor_mode": "gait"
+  },
+  {
+    "step": 52,
+    "latency_ms": 102.28,
+    "sqi": 0.93,
+    "bad_channels": [],
+    "gait_phase": 0.2775,
+    "angles_deg": [
+      3.03,
+      -14.95,
+      -15.24
+    ],
+    "torques_nm": [
+      -0.12,
+      -0.08,
+      0.22
+    ],
+    "cpg": {
+      "flexor_rate_hz": 0.0,
+      "extensor_rate_hz": 0.0,
+      "gait_phase_rad": 0.2775073510670987,
+      "anti_phase_index": 1.0,
+      "step_count": 53
+    },
+    "shannon_ok": false,
+    "reflex": false,
+    "dopamine_nm": 58.5,
+    "cole_alpha": 0.877,
+    "stair": true,
+    "xai_bands": {},
+    "alerts": [
+      "SHANNON_VIOLATION: SAFETY VIOLATION \u2014 k=3.107 \u2265 1.75. Clamping 80.0\u03bcA \u2192 16.8\u03bcA.",
+      "LATENCY_EXCEEDED: 102.3ms > 15ms"
+    ],
+    "attractor_x": -0.4418,
+    "attractor_y": -0.0816,
+    "attractor_z": 0.0971,
+    "attractor_mode": "gait"
+  },
+  {
+    "step": 53,
+    "latency_ms": 111.06,
+    "sqi": 0.922,
+    "bad_channels": [],
+    "gait_phase": 0.2827,
+    "angles_deg": [
+      3.28,
+      -13.79,
+      -16.39
+    ],
+    "torques_nm": [
+      -0.04,
+      0.16,
+      -0.15
+    ],
+    "cpg": {
+      "flexor_rate_hz": 0.0,
+      "extensor_rate_hz": 0.0,
+      "gait_phase_rad": 0.28274333882308167,
+      "anti_phase_index": 1.0,
+      "step_count": 54
+    },
+    "shannon_ok": false,
+    "reflex": false,
+    "dopamine_nm": 59.04,
+    "cole_alpha": 0.81,
+    "stair": true,
+    "xai_bands": {},
+    "alerts": [
+      "SHANNON_VIOLATION: SAFETY VIOLATION \u2014 k=3.107 \u2265 1.75. Clamping 80.0\u03bcA \u2192 16.8\u03bcA.",
+      "NMPC_KNEE_BUCKLE_RISK",
+      "LATENCY_EXCEEDED: 111.1ms > 15ms"
+    ],
+    "attractor_x": -0.4458,
+    "attractor_y": -0.1048,
+    "attractor_z": 0.1017,
+    "attractor_mode": "gait"
+  },
+  {
+    "step": 54,
+    "latency_ms": 102.35,
+    "sqi": 0.924,
+    "bad_channels": [],
+    "gait_phase": 0.288,
+    "angles_deg": [
+      2.81,
+      -13.02,
+      -17.38
+    ],
+    "torques_nm": [
+      -0.07,
+      0.14,
+      -0.18
+    ],
+    "cpg": {
+      "flexor_rate_hz": 0.0,
+      "extensor_rate_hz": 0.0,
+      "gait_phase_rad": 0.28797932657906467,
+      "anti_phase_index": 1.0,
+      "step_count": 55
+    },
+    "shannon_ok": false,
+    "reflex": false,
+    "dopamine_nm": 58.38,
+    "cole_alpha": 0.834,
+    "stair": true,
+    "xai_bands": {},
+    "alerts": [
+      "SHANNON_VIOLATION: SAFETY VIOLATION \u2014 k=3.107 \u2265 1.75. Clamping 80.0\u03bcA \u2192 16.8\u03bcA.",
+      "NMPC_KNEE_BUCKLE_RISK",
+      "LATENCY_EXCEEDED: 102.4ms > 15ms"
+    ],
+    "attractor_x": -0.4353,
+    "attractor_y": -0.1437,
+    "attractor_z": 0.0933,
+    "attractor_mode": "gait"
+  },
+  {
+    "step": 55,
+    "latency_ms": 130.26,
+    "sqi": 0.933,
+    "bad_channels": [],
+    "gait_phase": 0.2932,
+    "angles_deg": [
+      3.29,
+      -13.42,
+      -18.25
+    ],
+    "torques_nm": [
+      -0.03,
+      -0.14,
+      -0.35
+    ],
+    "cpg": {
+      "flexor_rate_hz": 0.0,
+      "extensor_rate_hz": 0.0,
+      "gait_phase_rad": 0.29321531433504766,
+      "anti_phase_index": 1.0,
+      "step_count": 56
+    },
+    "shannon_ok": false,
+    "reflex": false,
+    "dopamine_nm": 60.28,
+    "cole_alpha": 0.82,
+    "stair": true,
+    "xai_bands": {
+      "delta": 0.004074079337388958,
+      "theta": 0.00012319126433241016,
+      "alpha": 2.6725006474270785e-05,
+      "mu_beta": 0.14101407999340176,
+      "low_gamma": 0.583566159388792,
+      "high_gamma": 0.2711957650096107
+    },
+    "alerts": [
+      "SHANNON_VIOLATION: SAFETY VIOLATION \u2014 k=3.107 \u2265 1.75. Clamping 80.0\u03bcA \u2192 16.8\u03bcA.",
+      "LATENCY_EXCEEDED: 130.3ms > 15ms"
+    ],
+    "attractor_x": -0.4131,
+    "attractor_y": -0.176,
+    "attractor_z": 0.0853,
+    "attractor_mode": "gait"
+  },
+  {
+    "step": 56,
+    "latency_ms": 121.06,
+    "sqi": 0.916,
+    "bad_channels": [],
+    "gait_phase": 0.2985,
+    "angles_deg": [
+      2.19,
+      -12.9,
+      -17.94
+    ],
+    "torques_nm": [
+      0.02,
+      0.13,
+      0.16
+    ],
+    "cpg": {
+      "flexor_rate_hz": 0.0,
+      "extensor_rate_hz": 0.0,
+      "gait_phase_rad": 0.29845130209103066,
+      "anti_phase_index": 1.0,
+      "step_count": 57
+    },
+    "shannon_ok": false,
+    "reflex": false,
+    "dopamine_nm": 64.74,
+    "cole_alpha": 0.856,
+    "stair": true,
+    "xai_bands": {},
+    "alerts": [
+      "SHANNON_VIOLATION: SAFETY VIOLATION \u2014 k=3.107 \u2265 1.75. Clamping 80.0\u03bcA \u2192 16.8\u03bcA.",
+      "LATENCY_EXCEEDED: 121.1ms > 15ms"
+    ],
+    "attractor_x": -0.4017,
+    "attractor_y": -0.1912,
+    "attractor_z": 0.0761,
+    "attractor_mode": "gait"
+  },
+  {
+    "step": 57,
+    "latency_ms": 115.47,
+    "sqi": 0.919,
+    "bad_channels": [],
+    "gait_phase": 0.3037,
+    "angles_deg": [
+      3.5,
+      -13.44,
+      -15.91
+    ],
+    "torques_nm": [
+      0.05,
+      0.01,
+      -0.06
+    ],
+    "cpg": {
+      "flexor_rate_hz": 0.0,
+      "extensor_rate_hz": 0.0,
+      "gait_phase_rad": 0.30368728984701365,
+      "anti_phase_index": 1.0,
+      "step_count": 58
+    },
+    "shannon_ok": false,
+    "reflex": false,
+    "dopamine_nm": 59.49,
+    "cole_alpha": 0.847,
+    "stair": true,
+    "xai_bands": {},
+    "alerts": [
+      "SHANNON_VIOLATION: SAFETY VIOLATION \u2014 k=3.107 \u2265 1.75. Clamping 80.0\u03bcA \u2192 16.8\u03bcA.",
+      "LATENCY_EXCEEDED: 115.5ms > 15ms"
+    ],
+    "attractor_x": -0.3845,
+    "attractor_y": -0.2142,
+    "attractor_z": 0.0472,
+    "attractor_mode": "gait"
+  },
+  {
+    "step": 58,
+    "latency_ms": 82.95,
+    "sqi": 0.924,
+    "bad_channels": [],
+    "gait_phase": 0.3089,
+    "angles_deg": [
+      1.52,
+      -13.25,
+      -15.8
+    ],
+    "torques_nm": [
+      -0.02,
+      -0.14,
+      -0.0
+    ],
+    "cpg": {
+      "flexor_rate_hz": 0.0,
+      "extensor_rate_hz": 0.0,
+      "gait_phase_rad": 0.30892327760299665,
+      "anti_phase_index": 1.0,
+      "step_count": 59
+    },
+    "shannon_ok": false,
+    "reflex": false,
+    "dopamine_nm": 68.74,
+    "cole_alpha": 0.817,
+    "stair": true,
+    "xai_bands": {},
+    "alerts": [
+      "SHANNON_VIOLATION: SAFETY VIOLATION \u2014 k=3.107 \u2265 1.75. Clamping 80.0\u03bcA \u2192 16.8\u03bcA.",
+      "LATENCY_EXCEEDED: 83.0ms > 15ms"
+    ],
+    "attractor_x": -0.3642,
+    "attractor_y": -0.2534,
+    "attractor_z": 0.1066,
+    "attractor_mode": "gait"
+  },
+  {
+    "step": 59,
+    "latency_ms": 112.83,
+    "sqi": 0.926,
+    "bad_channels": [],
+    "gait_phase": 0.3142,
+    "angles_deg": [
+      1.41,
+      -14.06,
+      -15.67
+    ],
+    "torques_nm": [
+      -0.1,
+      0.05,
+      -0.51
+    ],
+    "cpg": {
+      "flexor_rate_hz": 0.0,
+      "extensor_rate_hz": 0.0,
+      "gait_phase_rad": 0.31415926535897964,
+      "anti_phase_index": 1.0,
+      "step_count": 60
+    },
+    "shannon_ok": false,
+    "reflex": false,
+    "dopamine_nm": 67.6,
+    "cole_alpha": 0.809,
+    "stair": true,
+    "xai_bands": {},
+    "alerts": [
+      "SHANNON_VIOLATION: SAFETY VIOLATION \u2014 k=3.107 \u2265 1.75. Clamping 80.0\u03bcA \u2192 16.8\u03bcA.",
+      "LATENCY_EXCEEDED: 112.8ms > 15ms"
+    ],
+    "attractor_x": -0.3488,
+    "attractor_y": -0.2796,
+    "attractor_z": 0.12,
+    "attractor_mode": "gait"
+  }
+]

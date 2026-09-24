@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NeuroForge CANRP-X v3.0 — Digital Twin Dashboard</title>
+  <meta name="description" content="Real-time WebGL digital twin dashboard for the NeuroForge Closed-Loop Autonomous Neuro-Restoration Platform (CANRP-X v3.0). Visualises cortical attractor manifold, biomechanical gait, and telemetry." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" />
+  <style>
+    /* ─── Design System ──────────────────────────────────────────────────── */
+    :root {
+      --bg-void:       #030712;
+      --bg-deep:       #0b1120;
+      --bg-card:       #111827;
+      --bg-card2:      #1a2235;
+      --border:        rgba(99,179,237,0.12);
+      --border-glow:   rgba(99,179,237,0.35);
+      --accent-cyan:   #38bdf8;
+      --accent-indigo: #818cf8;
+      --accent-violet: #c084fc;
+      --accent-green:  #34d399;
+      --accent-amber:  #fbbf24;
+      --accent-red:    #f87171;
+      --text-primary:  #e2e8f0;
+      --text-secondary:#94a3b8;
+      --text-dim:      #475569;
+      --font-ui:       'Inter', sans-serif;
+      --font-mono:     'JetBrains Mono', monospace;
+      --radius:        12px;
+      --radius-sm:     8px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      width: 100%; height: 100%; overflow: hidden;
+      background: var(--bg-void);
+      color: var(--text-primary);
+      font-family: var(--font-ui);
+      font-size: 13px;
+    }
+
+    /* ─── Layout ─────────────────────────────────────────────────────────── */
+    #app {
+      display: grid;
+      grid-template-rows: 56px 1fr 220px;
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas:
+        "header  header"
+        "canvas-bio  canvas-att"
+        "telemetry  telemetry";
+      height: 100vh;
+      gap: 2px;
+      background: var(--bg-void);
+    }
+
+    /* ─── Header ─────────────────────────────────────────────────────────── */
+    #header {
+      grid-area: header;
+      display: flex;
+      align-items: center;
+      padding: 0 20px;
+      background: linear-gradient(90deg, #0b1120, #0f1a2e);
+      border-bottom: 1px solid var(--border);
+      gap: 16px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-icon {
+      width: 32px; height: 32px;
+      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-violet));
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px;
+    }
+
+    .logo-text {
+      font-weight: 700; font-size: 15px;
+      background: linear-gradient(90deg, var(--accent-cyan), var(--accent-violet));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .logo-sub { font-size: 10px; color: var(--text-dim); letter-spacing: 1px; }
+
+    .header-divider { width: 1px; height: 32px; background: var(--border); margin: 0 4px; }
+
+    .status-pill {
+      display: flex; align-items: center; gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid;
+      font-size: 11px; font-weight: 500;
+      font-family: var(--font-mono);
+    }
+
+    .status-pill.live { border-color: rgba(52,211,153,0.4); color: var(--accent-green); }
+    .status-pill.warn { border-color: rgba(251,191,36,0.4); color: var(--accent-amber); }
+    .status-pill.err  { border-color: rgba(248,113,113,0.4); color: var(--accent-red); }
+
+    .pulse {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: currentColor;
+      animation: pulse-ring 1.4s ease-out infinite;
+    }
+
+    @keyframes pulse-ring {
+      0%   { box-shadow: 0 0 0 0px currentColor; opacity: 1; }
+      70%  { box-shadow: 0 0 0 6px transparent; opacity: 0.7; }
+      100% { box-shadow: 0 0 0 0px transparent; opacity: 1; }
+    }
+
+    .header-metrics { display: flex; gap: 24px; margin-left: auto; }
+
+    .h-metric { display: flex; flex-direction: column; align-items: flex-end; }
+    .h-metric-label { font-size: 9px; color: var(--text-dim); letter-spacing: 0.8px; text-transform: uppercase; }
+    .h-metric-value { font-size: 14px; font-weight: 600; font-family: var(--font-mono); color: var(--accent-cyan); }
+
+    /* ─── Canvas Panels ──────────────────────────────────────────────────── */
+    .canvas-panel {
+      position: relative;
+      background: var(--bg-deep);
+      border: 1px solid var(--border);
+      overflow: hidden;
+    }
+
+    #canvas-bio  { grid-area: canvas-bio; }
+    #canvas-att  { grid-area: canvas-att; }
+
+    .panel-label {
+      position: absolute; top: 12px; left: 14px; z-index: 10;
+      font-size: 10px; font-weight: 600; letter-spacing: 1.2px;
+      text-transform: uppercase; color: var(--text-secondary);
+      pointer-events: none;
+    }
+
+    .panel-label span {
+      background: linear-gradient(90deg, var(--accent-cyan), var(--accent-indigo));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .panel-overlay {
+      position: absolute; top: 12px; right: 14px; z-index: 10;
+      display: flex; flex-direction: column; gap: 4px; align-items: flex-end;
+      pointer-events: none;
+    }
+
+    .mini-badge {
+      font-family: var(--font-mono); font-size: 10px;
+      padding: 2px 7px; border-radius: 4px;
+      background: rgba(0,0,0,0.55); border: 1px solid var(--border);
+      color: var(--text-secondary);
+    }
+
+    canvas.gl {
+      display: block;
+      width: 100%; height: 100%;
+    }
+
+    /* ─── Telemetry Strip ────────────────────────────────────────────────── */
+    #telemetry {
+      grid-area: telemetry;
+      background: var(--bg-card);
+      border-top: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: 1fr 280px 280px 260px;
+      gap: 0;
+      overflow: hidden;
+    }
+
+    .tel-section {
+      padding: 12px 16px;
+      border-right: 1px solid var(--border);
+    }
+    .tel-section:last-child { border-right: none; }
+
+    .tel-title {
+      font-size: 9px; letter-spacing: 1px; text-transform: uppercase;
+      color: var(--text-dim); margin-bottom: 10px; font-weight: 600;
+    }
+
+    /* Spinal array grid */
+    #spinal-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      gap: 6px;
+      height: calc(100% - 28px);
+    }
+
+    .contact {
+      border-radius: 50%;
+      border: 1.5px solid var(--border-glow);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 8px; font-family: var(--font-mono);
+      color: var(--text-dim);
+      transition: all 0.3s ease;
+      cursor: default;
+      position: relative;
+    }
+
+    .contact.active {
+      background: radial-gradient(circle, rgba(56,189,248,0.25), rgba(56,189,248,0.05));
+      border-color: var(--accent-cyan);
+      color: var(--accent-cyan);
+      box-shadow: 0 0 12px rgba(56,189,248,0.4), inset 0 0 6px rgba(56,189,248,0.1);
+    }
+
+    /* Metric rows */
+    .metric-row {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 8px;
+    }
+    .metric-label { color: var(--text-secondary); font-size: 11px; }
+    .metric-value {
+      font-family: var(--font-mono); font-size: 12px; font-weight: 500;
+    }
+    .metric-value.ok  { color: var(--accent-green); }
+    .metric-value.warn{ color: var(--accent-amber); }
+    .metric-value.err { color: var(--accent-red); }
+    .metric-value.info{ color: var(--accent-cyan); }
+
+    /* Gauge bar */
+    .gauge-wrap { margin-bottom: 8px; }
+    .gauge-label-row {
+      display: flex; justify-content: space-between;
+      font-size: 10px; color: var(--text-secondary); margin-bottom: 3px;
+    }
+    .gauge-track {
+      height: 5px; border-radius: 3px;
+      background: rgba(255,255,255,0.06);
+      overflow: hidden;
+    }
+    .gauge-fill {
+      height: 100%; border-radius: 3px;
+      transition: width 0.4s ease;
+    }
+    .gauge-fill.cyan   { background: linear-gradient(90deg, var(--accent-cyan), var(--accent-indigo)); }
+    .gauge-fill.green  { background: linear-gradient(90deg, var(--accent-green), #059669); }
+    .gauge-fill.amber  { background: linear-gradient(90deg, var(--accent-amber), #d97706); }
+    .gauge-fill.red    { background: linear-gradient(90deg, var(--accent-red), #dc2626); }
+    .gauge-fill.violet { background: linear-gradient(90deg, var(--accent-violet), var(--accent-indigo)); }
+
+    /* XAI band chart */
+    #xai-chart {
+      display: flex; flex-direction: column; gap: 5px;
+      height: calc(100% - 28px);
+    }
+    .xai-band-row { display: flex; align-items: center; gap: 8px; }
+    .xai-band-name {
+      width: 72px; font-size: 9px; font-family: var(--font-mono);
+      color: var(--text-secondary); text-align: right; flex-shrink: 0;
+    }
+    .xai-bar-track {
+      flex: 1; height: 8px; border-radius: 4px;
+      background: rgba(255,255,255,0.04);
+      overflow: hidden;
+    }
+    .xai-bar-fill {
+      height: 100%; border-radius: 4px;
+      transition: width 0.5s ease;
+    }
+    .xai-band-val {
+      width: 36px; font-size: 9px; font-family: var(--font-mono);
+      color: var(--text-dim); text-align: right; flex-shrink: 0;
+    }
+
+    /* Alert ticker */
+    #alert-ticker {
+      height: calc(100% - 28px);
+      overflow-y: auto;
+      display: flex; flex-direction: column; gap: 4px;
+    }
+
+    .alert-entry {
+      padding: 4px 8px; border-radius: 4px;
+      font-size: 10px; font-family: var(--font-mono);
+      border-left: 3px solid;
+      animation: slide-in 0.3s ease;
+    }
+    .alert-entry.warn { border-color: var(--accent-amber); background: rgba(251,191,36,0.06); color: var(--accent-amber); }
+    .alert-entry.err  { border-color: var(--accent-red); background: rgba(248,113,113,0.06); color: var(--accent-red); }
+    .alert-entry.ok   { border-color: var(--accent-green); background: rgba(52,211,153,0.06); color: var(--accent-green); }
+
+    @keyframes slide-in {
+      from { opacity: 0; transform: translateX(-8px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+
+    /* Loading overlay */
+    #loading {
+      position: fixed; inset: 0; z-index: 100;
+      background: var(--bg-void);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 16px;
+    }
+    .loading-title {
+      font-size: 22px; font-weight: 700;
+      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-violet));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .loading-sub { font-size: 12px; color: var(--text-dim); font-family: var(--font-mono); }
+    .loading-bar-track {
+      width: 280px; height: 4px; border-radius: 2px;
+      background: rgba(255,255,255,0.06);
+      overflow: hidden;
+    }
+    .loading-bar-fill {
+      height: 100%; border-radius: 2px;
+      background: linear-gradient(90deg, var(--accent-cyan), var(--accent-violet));
+      animation: loading-anim 2s ease-in-out infinite;
+    }
+    @keyframes loading-anim {
+      0%   { width: 0%; }
+      50%  { width: 80%; }
+      100% { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Loading overlay -->
+<div id="loading">
+  <div class="logo-icon" style="width:48px;height:48px;font-size:28px;border-radius:12px;">🧠</div>
+  <div class="loading-title">NeuroForge CANRP-X v3.0</div>
+  <div class="loading-sub">Initialising WebGL digital-twin engines …</div>
+  <div class="loading-bar-track"><div class="loading-bar-fill"></div></div>
+</div>
+
+<div id="app">
+
+  <!-- ─── Header ─────────────────────────────────────────────────────────── -->
+  <header id="header">
+    <div class="logo">
+      <div class="logo-icon">🧠</div>
+      <div>
+        <div class="logo-text">NeuroForge</div>
+        <div class="logo-sub">CANRP-X v3.0 · Digital Twin</div>
+      </div>
+    </div>
+    <div class="header-divider"></div>
+    <div class="status-pill live" id="sys-status">
+      <div class="pulse"></div> SYSTEM LIVE
+    </div>
+    <div class="status-pill" id="latency-pill" style="border-color:rgba(52,211,153,0.4);color:var(--accent-green)">
+      <div class="pulse"></div> <span id="hdr-latency">-- ms</span>
+    </div>
+    <div class="header-metrics">
+      <div class="h-metric">
+        <div class="h-metric-label">SQI</div>
+        <div class="h-metric-value" id="hdr-sqi">—</div>
+      </div>
+      <div class="h-metric">
+        <div class="h-metric-label">Step</div>
+        <div class="h-metric-value" id="hdr-step">0</div>
+      </div>
+      <div class="h-metric">
+        <div class="h-metric-label">Dopamine</div>
+        <div class="h-metric-value" id="hdr-dopa">— nM</div>
+      </div>
+      <div class="h-metric">
+        <div class="h-metric-label">Gait Phase</div>
+        <div class="h-metric-value" id="hdr-phase">0.00 rad</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ─── Canvas 1: Biomechanical Subsystem ──────────────────────────────── -->
+  <div class="canvas-panel" id="canvas-bio">
+    <div class="panel-label">Canvas 1 · <span>Biomechanical Subsystem</span></div>
+    <div class="panel-overlay">
+      <div class="mini-badge" id="bio-hip">Hip: —°</div>
+      <div class="mini-badge" id="bio-knee">Knee: —°</div>
+      <div class="mini-badge" id="bio-ankle">Ankle: —°</div>
+      <div class="mini-badge" id="bio-mode">Mode: —</div>
+    </div>
+    <canvas class="gl" id="bio-canvas"></canvas>
+  </div>
+
+  <!-- ─── Canvas 2: Cortical Attractor Manifold ─────────────────────────── -->
+  <div class="canvas-panel" id="canvas-att">
+    <div class="panel-label">Canvas 2 · <span>Cortical Attractor Manifold</span></div>
+    <div class="panel-overlay">
+      <div class="mini-badge" id="att-mode">Mode: gait</div>
+      <div class="mini-badge" id="att-xyz">xyz: —</div>
+    </div>
+    <canvas class="gl" id="att-canvas"></canvas>
+  </div>
+
+  <!-- ─── Telemetry Strip ─────────────────────────────────────────────────── -->
+  <div id="telemetry">
+
+    <!-- Spinal Array -->
+    <div class="tel-section">
+      <div class="tel-title">32-Contact Epidural Array (15 active)</div>
+      <div id="spinal-grid"></div>
+    </div>
+
+    <!-- System Gauges -->
+    <div class="tel-section">
+      <div class="tel-title">System Telemetry</div>
+
+      <div class="gauge-wrap">
+        <div class="gauge-label-row">
+          <span>Signal Quality Index</span>
+          <span id="g-sqi-val">—</span>
+        </div>
+        <div class="gauge-track"><div class="gauge-fill green" id="g-sqi" style="width:0%"></div></div>
+      </div>
+
+      <div class="gauge-wrap">
+        <div class="gauge-label-row">
+          <span>Latency (target &lt;15 ms)</span>
+          <span id="g-lat-val">—</span>
+        </div>
+        <div class="gauge-track"><div class="gauge-fill cyan" id="g-lat" style="width:0%"></div></div>
+      </div>
+
+      <div class="gauge-wrap">
+        <div class="gauge-label-row">
+          <span>Dopamine [nM]</span>
+          <span id="g-dopa-val">—</span>
+        </div>
+        <div class="gauge-track"><div class="gauge-fill violet" id="g-dopa" style="width:0%"></div></div>
+      </div>
+
+      <div class="gauge-wrap">
+        <div class="gauge-label-row">
+          <span>Cole-Cole α (≥0.70 safe)</span>
+          <span id="g-cole-val">—</span>
+        </div>
+        <div class="gauge-track"><div class="gauge-fill amber" id="g-cole" style="width:0%"></div></div>
+      </div>
+
+      <div class="metric-row">
+        <span class="metric-label">Shannon Safety</span>
+        <span class="metric-value ok" id="m-shannon">✓ OK</span>
+      </div>
+      <div class="metric-row">
+        <span class="metric-label">Fall Reflex</span>
+        <span class="metric-value ok" id="m-reflex">IDLE</span>
+      </div>
+      <div class="metric-row">
+        <span class="metric-label">Terrain</span>
+        <span class="metric-value info" id="m-terrain">Level</span>
+      </div>
+    </div>
+
+    <!-- XAI Band Attribution -->
+    <div class="tel-section">
+      <div class="tel-title">XAI Frequency Attribution</div>
+      <div id="xai-chart">
+        <div class="xai-band-row">
+          <div class="xai-band-name">δ delta</div>
+          <div class="xai-bar-track"><div class="xai-bar-fill" id="xai-delta" style="width:0%;background:var(--accent-red)"></div></div>
+          <div class="xai-band-val" id="xai-delta-v">—</div>
+        </div>
+        <div class="xai-band-row">
+          <div class="xai-band-name">θ theta</div>
+          <div class="xai-bar-track"><div class="xai-bar-fill" id="xai-theta" style="width:0%;background:var(--accent-amber)"></div></div>
+          <div class="xai-band-val" id="xai-theta-v">—</div>
+        </div>
+        <div class="xai-band-row">
+          <div class="xai-band-name">α alpha</div>
+          <div class="xai-bar-track"><div class="xai-bar-fill" id="xai-alpha" style="width:0%;background:#a78bfa)"></div></div>
+          <div class="xai-band-val" id="xai-alpha-v">—</div>
+        </div>
+        <div class="xai-band-row">
+          <div class="xai-band-name">μ/β mu-beta</div>
+          <div class="xai-bar-track"><div class="xai-bar-fill" id="xai-mubeta" style="width:0%;background:var(--accent-indigo)"></div></div>
+          <div class="xai-band-val" id="xai-mubeta-v">—</div>
+        </div>
+        <div class="xai-band-row">
+          <div class="xai-band-name">lo-γ low-γ</div>
+          <div class="xai-bar-track"><div class="xai-bar-fill" id="xai-lgamma" style="width:0%;background:var(--accent-cyan)"></div></div>
+          <div class="xai-band-val" id="xai-lgamma-v">—</div>
+        </div>
+        <div class="xai-band-row">
+          <div class="xai-band-name">hi-γ high-γ</div>
+          <div class="xai-bar-track"><div class="xai-bar-fill" id="xai-hgamma" style="width:0%;background:var(--accent-green)"></div></div>
+          <div class="xai-band-val" id="xai-hgamma-v">—</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Alert Ticker -->
+    <div class="tel-section">
+      <div class="tel-title">Alert Log</div>
+      <div id="alert-ticker"></div>
+    </div>
+
+  </div><!-- #telemetry -->
+</div><!-- #app -->
+
+<!-- Three.js via CDN (r158) -->
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.158.0/build/three.module.js",
+    "three/addons/": "https://unpkg.com/three@0.158.0/examples/jsm/"
+  }
+}
+</script>
+
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Utilities
+// ─────────────────────────────────────────────────────────────────────────────
+const $ = id => document.getElementById(id);
+const deg2rad = d => d * Math.PI / 180;
+const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 1. CANVAS 1: Biomechanical Subsystem — Articulated Leg
+// ─────────────────────────────────────────────────────────────────────────────
+(function setupBioCanvas() {
+  const canvas = $('bio-canvas');
+  const parent = canvas.parentElement;
+
+  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: false });
+  renderer.setPixelRatio(window.devicePixelRatio);
+  renderer.shadowMap.enabled = true;
+  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+  renderer.setClearColor(0x0b1120, 1);
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 1.1;
+
+  const scene = new THREE.Scene();
+  scene.fog = new THREE.FogExp2(0x0b1120, 0.06);
+
+  const camera = new THREE.PerspectiveCamera(45, 1, 0.01, 100);
+  camera.position.set(0, 1.2, 3.5);
+  camera.lookAt(0, 0.5, 0);
+
+  const controls = new OrbitControls(camera, renderer.domElement);
+  controls.target.set(0, 0.5, 0);
+  controls.enableDamping = true;
+  controls.dampingFactor = 0.06;
+  controls.minDistance = 1.5;
+  controls.maxDistance = 6;
+
+  // ── Lighting ──────────────────────────────────────────────────────────────
+  const ambient = new THREE.AmbientLight(0x112244, 0.8);
+  scene.add(ambient);
+
+  const keyLight = new THREE.SpotLight(0x38bdf8, 3, 8, Math.PI / 5, 0.4);
+  keyLight.position.set(2, 4, 3);
+  keyLight.castShadow = true;
+  keyLight.shadow.mapSize.set(1024, 1024);
+  scene.add(keyLight);
+  scene.add(keyLight.target);
+
+  const fillLight = new THREE.PointLight(0xc084fc, 1.5, 6);
+  fillLight.position.set(-2, 1, -1);
+  scene.add(fillLight);
+
+  const rimLight = new THREE.PointLight(0x818cf8, 0.8, 5);
+  rimLight.position.set(0, 3, -2);
+  scene.add(rimLight);
+
+  // ── Ground plane ──────────────────────────────────────────────────────────
+  const groundGeo = new THREE.PlaneGeometry(8, 8);
+  const groundMat = new THREE.MeshStandardMaterial({
+    color: 0x0f1a2e,
+    roughness: 0.8,
+    metalness: 0.1,
+    envMapIntensity: 0.5,
+  });
+  const ground = new THREE.Mesh(groundGeo, groundMat);
+  ground.rotation.x = -Math.PI / 2;
+  ground.receiveShadow = true;
+  scene.add(ground);
+
+  // Subtle grid
+  const grid = new THREE.GridHelper(6, 20, 0x1e3a5f, 0x0f1a2e);
+  grid.material.opacity = 0.35;
+  grid.material.transparent = true;
+  scene.add(grid);
+
+  // ── Leg Materials ─────────────────────────────────────────────────────────
+  const limbMat = new THREE.MeshStandardMaterial({
+    color: 0x1a3a6e,
+    roughness: 0.25,
+    metalness: 0.75,
+    emissive: 0x0a1530,
+    emissiveIntensity: 0.2,
+  });
+
+  const jointMat = new THREE.MeshStandardMaterial({
+    color: 0x38bdf8,
+    roughness: 0.1,
+    metalness: 0.9,
+    emissive: 0x0e90d0,
+    emissiveIntensity: 0.5,
+  });
+
+  const footMat = new THREE.MeshStandardMaterial({
+    color: 0x2e4a7e,
+    roughness: 0.4,
+    metalness: 0.6,
+  });
+
+  // ── Leg Geometry ──────────────────────────────────────────────────────────
+  // Root (hip pivot) — positioned at y=1.8 (hip height)
+  const hip = new THREE.Group();
+  hip.position.set(0, 1.8, 0);
+  scene.add(hip);
+
+  // Hip joint sphere
+  const hipSphere = new THREE.Mesh(new THREE.SphereGeometry(0.09, 16, 16), jointMat);
+  hip.add(hipSphere);
+
+  // Thigh
+  const thigh = new THREE.Group();
+  hip.add(thigh);
+  const thighMesh = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.055, 0.065, 0.7, 12),
+    limbMat.clone()
+  );
+  thighMesh.position.y = -0.35;
+  thighMesh.castShadow = true;
+  thigh.add(thighMesh);
+
+  // Knee pivot (at bottom of thigh)
+  const knee = new THREE.Group();
+  knee.position.y = -0.7;
+  thigh.add(knee);
+
+  const kneeSphere = new THREE.Mesh(new THREE.SphereGeometry(0.08, 16, 16), jointMat);
+  knee.add(kneeSphere);
+
+  // Knee glow ring
+  const kneeRingGeo = new THREE.TorusGeometry(0.11, 0.015, 8, 24);
+  const kneeRingMat = new THREE.MeshBasicMaterial({ color: 0x38bdf8, transparent: true, opacity: 0.6 });
+  const kneeRing = new THREE.Mesh(kneeRingGeo, kneeRingMat);
+  kneeRing.rotation.x = Math.PI / 2;
+  knee.add(kneeRing);
+
+  // Shin
+  const shin = new THREE.Group();
+  knee.add(shin);
+  const shinMesh = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.04, 0.05, 0.65, 12),
+    limbMat.clone()
+  );
+  shinMesh.position.y = -0.325;
+  shinMesh.castShadow = true;
+  shin.add(shinMesh);
+
+  // Ankle pivot
+  const ankle = new THREE.Group();
+  ankle.position.y = -0.65;
+  shin.add(ankle);
+
+  const ankleSphere = new THREE.Mesh(new THREE.SphereGeometry(0.06, 14, 14), jointMat);
+  ankle.add(ankleSphere);
+
+  // Foot
+  const footGroup = new THREE.Group();
+  ankle.add(footGroup);
+  const footMesh = new THREE.Mesh(
+    new THREE.BoxGeometry(0.14, 0.06, 0.3),
+    footMat
+  );
+  footMesh.position.set(0, -0.03, 0.1);
+  footMesh.castShadow = true;
+  footGroup.add(footMesh);
+
+  // Heel
+  const heelMesh = new THREE.Mesh(
+    new THREE.SphereGeometry(0.055, 10, 10),
+    footMat
+  );
+  heelMesh.position.set(0, -0.03, -0.1);
+  footGroup.add(heelMesh);
+
+  // Epidural electrode strip on shin (15 contacts visual)
+  const epiGroup = new THREE.Group();
+  shin.add(epiGroup);
+  const epiDots = [];
+  for (let i = 0; i < 15; i++) {
+    const dot = new THREE.Mesh(
+      new THREE.SphereGeometry(0.01, 8, 8),
+      new THREE.MeshBasicMaterial({ color: 0x38bdf8 })
+    );
+    dot.position.set(0.06, -0.05 - i * 0.035, 0);
+    epiGroup.add(dot);
+    epiDots.push(dot);
+  }
+
+  // ── State ─────────────────────────────────────────────────────────────────
+  let hipAngle = 0, kneeAngle = 0, ankleAngle = 0;
+  let targetHip = 0, targetKnee = 0, targetAnkle = 0;
+
+  // ── Resize ────────────────────────────────────────────────────────────────
+  function resize() {
+    const w = parent.clientWidth, h = parent.clientHeight;
+    renderer.setSize(w, h);
+    camera.aspect = w / h;
+    camera.updateProjectionMatrix();
+  }
+  resize();
+  new ResizeObserver(resize).observe(parent);
+
+  // ── Public update API ─────────────────────────────────────────────────────
+  window.updateBioCanvas = function(hip_d, knee_d, ankle_d, mode) {
+    targetHip   = deg2rad(hip_d   || 0);
+    targetKnee  = deg2rad(clamp(knee_d || 0, 0, 90));
+    targetAnkle = deg2rad(ankle_d  || 0);
+    $('bio-hip').textContent   = `Hip: ${(hip_d||0).toFixed(1)}°`;
+    $('bio-knee').textContent  = `Knee: ${(knee_d||0).toFixed(1)}°`;
+    $('bio-ankle').textContent = `Ankle: ${(ankle_d||0).toFixed(1)}°`;
+    $('bio-mode').textContent  = `Mode: ${mode || '—'}`;
+  };
+
+  // ── Animation loop ────────────────────────────────────────────────────────
+  const clock = new THREE.Clock();
+  function animate() {
+    requestAnimationFrame(animate);
+    const t = clock.getElapsedTime();
+
+    // Smooth angle interpolation
+    const lerpF = 0.08;
+    hipAngle   += (targetHip   - hipAngle)   * lerpF;
+    kneeAngle  += (targetKnee  - kneeAngle)  * lerpF;
+    ankleAngle += (targetAnkle - ankleAngle) * lerpF;
+
+    // Apply rotations (X-axis rotation for sagittal-plane kinematics)
+    thigh.rotation.x = -hipAngle;
+    shin.rotation.x  =  kneeAngle;
+    footGroup.rotation.x = -ankleAngle;
+
+    // Animate knee ring glow
+    kneeRing.material.opacity = 0.4 + 0.3 * Math.sin(t * 3);
+    kneeRingMat.color.setHSL(0.56, 1.0, 0.5 + 0.15 * Math.sin(t * 2));
+
+    // Animate epidural contacts
+    epiDots.forEach((dot, i) => {
+      const phase = t * 4 + i * 0.4;
+      const brightness = 0.35 + 0.65 * Math.abs(Math.sin(phase));
+      dot.material.color.setHSL(0.56, 1.0, brightness);
+    });
+
+    // Subtle hip breathing (postural sway)
+    hip.position.x = 0.04 * Math.sin(t * 0.8);
+
+    controls.update();
+    renderer.render(scene, camera);
+  }
+  animate();
+})();
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 2. CANVAS 2: Cortical Attractor Manifold — 5×5×5 Quiver + State Cursor
+// ─────────────────────────────────────────────────────────────────────────────
+(function setupAttractorCanvas() {
+  const canvas = $('att-canvas');
+  const parent = canvas.parentElement;
+
+  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: false });
+  renderer.setPixelRatio(window.devicePixelRatio);
+  renderer.setClearColor(0x030712, 1);
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 1.2;
+
+  const scene = new THREE.Scene();
+  scene.fog = new THREE.FogExp2(0x030712, 0.04);
+
+  const camera = new THREE.PerspectiveCamera(50, 1, 0.01, 50);
+  camera.position.set(3.5, 2.5, 4.5);
+  camera.lookAt(0, 0, 0);
+
+  const controls = new OrbitControls(camera, renderer.domElement);
+  controls.target.set(0, 0, 0);
+  controls.enableDamping = true;
+  controls.dampingFactor = 0.05;
+  controls.autoRotate = true;
+  controls.autoRotateSpeed = 0.5;
+
+  // ── Ambient + lights ──────────────────────────────────────────────────────
+  scene.add(new THREE.AmbientLight(0x050520, 1));
+  const ptLight = new THREE.PointLight(0x818cf8, 3, 8);
+  ptLight.position.set(0, 2, 0);
+  scene.add(ptLight);
+
+  // ── 5×5×5 Quiver field ────────────────────────────────────────────────────
+  const GRID = 5;
+  const HALF = (GRID - 1) / 2;   // 2
+
+  function hopfVelocity(x, y, z) {
+    // Hopf oscillator vector field approximation
+    const mu = 1.0, omega = 2.0, alpha = 0.8;
+    const r2 = x * x + y * y;
+    const vx = alpha * (mu - r2) * x - omega * y;
+    const vy = alpha * (mu - r2) * y + omega * x;
+    const vz = -2.5 * z;
+    return new THREE.Vector3(vx, vy, vz);
+  }
+
+  const arrowGroup = new THREE.Group();
+  scene.add(arrowGroup);
+
+  const arrowObjects = [];
+  for (let ix = 0; ix < GRID; ix++) {
+    for (let iy = 0; iy < GRID; iy++) {
+      for (let iz = 0; iz < GRID; iz++) {
+        const x = (ix - HALF) * 0.6;
+        const y = (iy - HALF) * 0.6;
+        const z = (iz - HALF) * 0.6;
+        const vel = hopfVelocity(x, y, z);
+        const mag = vel.length();
+        const dir = vel.clone().normalize();
+
+        const origin = new THREE.Vector3(x, y, z);
+        const arrowLen = Math.min(mag * 0.12, 0.25);
+
+        const t = mag / 2.5;
+        const col = new THREE.Color().lerpColors(
+          new THREE.Color(0x818cf8), new THREE.Color(0x38bdf8), clamp(t, 0, 1)
+        );
+
+        const arrow = new THREE.ArrowHelper(dir, origin, arrowLen, col.getHex(), arrowLen * 0.5, arrowLen * 0.25);
+        arrow.line.material.opacity = 0.6;
+        arrow.line.material.transparent = true;
+        arrowGroup.add(arrow);
+        arrowObjects.push({ arrow, origin, ix, iy, iz });
+      }
+    }
+  }
+
+  // ── Limit-cycle ring ──────────────────────────────────────────────────────
+  const ringGeo = new THREE.TorusGeometry(1.0, 0.015, 8, 64);
+  const ringMat = new THREE.MeshBasicMaterial({
+    color: 0x38bdf8, transparent: true, opacity: 0.35
+  });
+  const ring = new THREE.Mesh(ringGeo, ringMat);
+  ring.rotation.x = Math.PI / 2;
+  scene.add(ring);
+
+  // ── State cursor (glowing sphere) ────────────────────────────────────────
+  const cursorGeo = new THREE.SphereGeometry(0.07, 16, 16);
+  const cursorMat = new THREE.MeshBasicMaterial({ color: 0x34d399 });
+  const cursor = new THREE.Mesh(cursorGeo, cursorMat);
+  scene.add(cursor);
+
+  // Point-light attached to cursor for glow effect
+  const cursorLight = new THREE.PointLight(0x34d399, 2, 1.5);
+  cursor.add(cursorLight);
+
+  // ── Orbital trail ribbon ─────────────────────────────────────────────────
+  const TRAIL_LEN = 80;
+  const trailPositions = new Float32Array(TRAIL_LEN * 3);
+  const trailGeo = new THREE.BufferGeometry();
+  trailGeo.setAttribute('position', new THREE.BufferAttribute(trailPositions, 3));
+  trailGeo.setDrawRange(0, 0);
+
+  const trailMat = new THREE.LineBasicMaterial({
+    color: 0x34d399, transparent: true, opacity: 0.5,
+    vertexColors: false,
+  });
+  const trailLine = new THREE.Line(trailGeo, trailMat);
+  scene.add(trailLine);
+
+  // Axes helper
+  const axes = new THREE.AxesHelper(1.5);
+  axes.material.opacity = 0.2;
+  axes.material.transparent = true;
+  scene.add(axes);
+
+  // ── State ─────────────────────────────────────────────────────────────────
+  let ax = 0.8, ay = 0, az = 0;
+  let targetAx = 0.8, targetAy = 0, targetAz = 0;
+  let attractorMode = 'gait';
+  const trail = [];
+
+  // Animate cursor with intrinsic Hopf when no data
+  let phase = 0;
+
+  window.updateAttractorCanvas = function(x, y, z, mode) {
+    targetAx = x * 0.9;
+    targetAy = y * 0.9;
+    targetAz = z * 0.9;
+    attractorMode = mode || 'gait';
+    $('att-mode').textContent = `Mode: ${attractorMode}`;
+    $('att-xyz').textContent  = `xyz: ${x.toFixed(2)}, ${y.toFixed(2)}, ${z.toFixed(2)}`;
+  };
+
+  // ── Resize ────────────────────────────────────────────────────────────────
+  function resize() {
+    const w = parent.clientWidth, h = parent.clientHeight;
+    renderer.setSize(w, h);
+    camera.aspect = w / h;
+    camera.updateProjectionMatrix();
+  }
+  resize();
+  new ResizeObserver(resize).observe(parent);
+
+  // ── Animation ─────────────────────────────────────────────────────────────
+  const clock = new THREE.Clock();
+  function animate() {
+    requestAnimationFrame(animate);
+    const t = clock.getElapsedTime();
+
+    // Drive cursor
+    ax += (targetAx - ax) * 0.05;
+    ay += (targetAy - ay) * 0.05;
+    az += (targetAz - az) * 0.05;
+
+    cursor.position.set(ax, ay, az);
+
+    // Cursor colour: green = gait, amber = stance
+    const cursorColor = attractorMode === 'gait' ? 0x34d399 : 0xfbbf24;
+    cursorMat.color.setHex(cursorColor);
+    cursorLight.color.setHex(cursorColor);
+
+    // Trail update
+    trail.push(new THREE.Vector3(ax, ay, az));
+    if (trail.length > TRAIL_LEN) trail.shift();
+    for (let i = 0; i < trail.length; i++) {
+      trailPositions[i * 3]     = trail[i].x;
+      trailPositions[i * 3 + 1] = trail[i].y;
+      trailPositions[i * 3 + 2] = trail[i].z;
+    }
+    trailGeo.attributes.position.needsUpdate = true;
+    trailGeo.setDrawRange(0, trail.length);
+
+    // Animate ring glow
+    ring.material.opacity = 0.2 + 0.2 * Math.sin(t * 1.5);
+    const hue = (t * 0.05) % 1;
+    ring.material.color.setHSL(hue * 0.2 + 0.56, 1, 0.6);
+
+    // Animate arrows
+    arrowObjects.forEach(({ arrow, origin, ix, iy, iz }, i) => {
+      const wave = Math.sin(t * 1.2 + i * 0.3) * 0.5 + 0.5;
+      arrow.line.material.opacity = 0.3 + wave * 0.4;
+    });
+
+    // Point light pulse
+    ptLight.intensity = 2.5 + 1.5 * Math.sin(t * 2.2);
+
+    controls.update();
+    renderer.render(scene, camera);
+  }
+  animate();
+})();
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 3. Spinal Array Grid Init
+// ─────────────────────────────────────────────────────────────────────────────
+(function initSpinalGrid() {
+  const grid = $('spinal-grid');
+  for (let i = 0; i < 15; i++) {
+    const c = document.createElement('div');
+    c.className = 'contact';
+    c.id = `contact-${i}`;
+    c.textContent = String(i + 1).padStart(2, '0');
+    grid.appendChild(c);
+  }
+})();
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 4. State Polling & Dashboard Updates
+// ─────────────────────────────────────────────────────────────────────────────
+let lastStep = -1;
+const alertHistory = [];
+
+function setGauge(id, pct, valId, valTxt, colorClass) {
+  const fill = $(id);
+  if (!fill) return;
+  fill.style.width = clamp(pct, 0, 100) + '%';
+  fill.className = `gauge-fill ${colorClass}`;
+  if (valId) $(valId).textContent = valTxt;
+}
+
+function pushAlert(msg, level = 'warn') {
+  const ticker = $('alert-ticker');
+  const entry = document.createElement('div');
+  entry.className = `alert-entry ${level}`;
+  const ts = new Date().toLocaleTimeString('en-GB', { hour12: false });
+  entry.textContent = `[${ts}] ${msg}`;
+  ticker.prepend(entry);
+  // Keep only 20
+  while (ticker.children.length > 20) ticker.lastChild.remove();
+}
+
+async function pollState() {
+  try {
+    let r = await fetch('dashboard_state.json?t=' + Date.now()).catch(() => null);
+    if (!r || !r.ok) {
+      r = await fetch('/dashboard_state.json?t=' + Date.now()).catch(() => null);
+    }
+    if (!r || !r.ok) {
+      r = await fetch('../dashboard_state.json?t=' + Date.now()).catch(() => null);
+    }
+    if (!r || !r.ok) { scheduleNext(); return; }
+    const data = await r.json();
+    if (!data || !data.length) { scheduleNext(); return; }
+
+    const latest = data[data.length - 1];
+    if (latest.step === lastStep) { scheduleNext(); return; }
+    lastStep = latest.step;
+
+    // ── Header ──────────────────────────────────────────────────────────────
+    $('hdr-step').textContent  = latest.step;
+    $('hdr-sqi').textContent   = (latest.sqi).toFixed(3);
+    $('hdr-dopa').textContent  = latest.dopamine_nm.toFixed(1) + ' nM';
+    $('hdr-phase').textContent = latest.gait_phase.toFixed(2) + ' rad';
+
+    // Latency pill
+    const lat = latest.latency_ms;
+    $('hdr-latency').textContent = lat.toFixed(1) + ' ms';
+    const latPill = $('latency-pill');
+    latPill.className = lat < 15 ? 'status-pill live' : 'status-pill err';
+
+    // ── Gauges ───────────────────────────────────────────────────────────────
+    const sqiPct = latest.sqi * 100;
+    const sqiColor = latest.sqi >= 0.75 ? 'green' : 'red';
+    setGauge('g-sqi', sqiPct, 'g-sqi-val', latest.sqi.toFixed(3), sqiColor);
+
+    const latPct = clamp((lat / 20) * 100, 0, 100);
+    const latColor = lat < 15 ? 'cyan' : 'red';
+    setGauge('g-lat', latPct, 'g-lat-val', lat.toFixed(1) + ' ms', latColor);
+
+    const dopaPct = clamp((latest.dopamine_nm / 200) * 100, 0, 100);
+    setGauge('g-dopa', dopaPct, 'g-dopa-val', latest.dopamine_nm.toFixed(1) + ' nM', 'violet');
+
+    const colePct = clamp(latest.cole_alpha * 100, 0, 100);
+    const coleColor = latest.cole_alpha >= 0.70 ? 'amber' : 'red';
+    setGauge('g-cole', colePct, 'g-cole-val', latest.cole_alpha.toFixed(3), coleColor);
+
+    // ── Metric rows ──────────────────────────────────────────────────────────
+    const shanEl = $('m-shannon');
+    shanEl.textContent = latest.shannon_ok ? '✓ OK' : '⚠ VIOLATED';
+    shanEl.className   = latest.shannon_ok ? 'metric-value ok' : 'metric-value err';
+
+    const refEl = $('m-reflex');
+    refEl.textContent = latest.reflex ? '⚡ TRIGGERED' : 'IDLE';
+    refEl.className   = latest.reflex ? 'metric-value err' : 'metric-value ok';
+
+    const terEl = $('m-terrain');
+    terEl.textContent = latest.stair ? '🪜 STAIR AHEAD' : 'Level';
+    terEl.className   = latest.stair ? 'metric-value warn' : 'metric-value info';
+
+    // ── Spinal contacts ───────────────────────────────────────────────────────
+    const cpg = latest.cpg || {};
+    const flexRate = cpg.flexor_rate_hz || 0;
+    const extRate  = cpg.extensor_rate_hz || 0;
+    for (let i = 0; i < 15; i++) {
+      const el = $(`contact-${i}`);
+      if (!el) continue;
+      // Alternate flex/ext contacts; animate based on firing rate
+      const rate = i % 2 === 0 ? flexRate : extRate;
+      const active = rate > 5;
+      el.classList.toggle('active', active);
+    }
+
+    // ── XAI Bands ─────────────────────────────────────────────────────────────
+    const bands = latest.xai_bands || {};
+    const bandMap = [
+      ['delta',      'xai-delta',  'xai-delta-v'],
+      ['theta',      'xai-theta',  'xai-theta-v'],
+      ['alpha',      'xai-alpha',  'xai-alpha-v'],
+      ['mu_beta',    'xai-mubeta', 'xai-mubeta-v'],
+      ['low_gamma',  'xai-lgamma', 'xai-lgamma-v'],
+      ['high_gamma', 'xai-hgamma', 'xai-hgamma-v'],
+    ];
+    let maxBand = 0;
+    bandMap.forEach(([key]) => { maxBand = Math.max(maxBand, bands[key] || 0); });
+    bandMap.forEach(([key, barId, valId]) => {
+      const val = bands[key] || 0;
+      const pct = maxBand > 0 ? (val / maxBand) * 100 : 0;
+      const el = $(barId);
+      if (el) el.style.width = pct + '%';
+      const ve = $(valId);
+      if (ve) ve.textContent = val.toFixed(3);
+    });
+
+    // ── Alerts ────────────────────────────────────────────────────────────────
+    (latest.alerts || []).forEach(alert => {
+      const lvl = alert.includes('VIOLATION') || alert.includes('REFLEX') ? 'err' : 'warn';
+      pushAlert(alert, lvl);
+    });
+    if ((latest.alerts || []).length === 0 && latest.step % 10 === 0) {
+      pushAlert(`Step ${latest.step} — All systems nominal.`, 'ok');
+    }
+
+    // ── 3D Canvas Updates ────────────────────────────────────────────────────
+    const angles = latest.angles_deg || [0, 0, 0];
+    if (window.updateBioCanvas) {
+      window.updateBioCanvas(angles[0], angles[1], angles[2], latest.attractor_mode);
+    }
+
+    if (window.updateAttractorCanvas) {
+      window.updateAttractorCanvas(
+        latest.attractor_x || 0,
+        latest.attractor_y || 0,
+        latest.attractor_z || 0,
+        latest.attractor_mode || 'gait'
+      );
+    }
+
+  } catch (e) {
+    // silently retry — pipeline may not have started yet
+  }
+  scheduleNext();
+}
+
+function scheduleNext() { setTimeout(pollState, 100); }  // 10 Hz polling
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 5. Remove loading overlay + start polling
+// ─────────────────────────────────────────────────────────────────────────────
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    const loading = $('loading');
+    loading.style.transition = 'opacity 0.8s ease';
+    loading.style.opacity = '0';
+    setTimeout(() => { loading.style.display = 'none'; }, 800);
+    pollState();
+  }, 1500);
+});
+</script>
+</body>
+</html>
